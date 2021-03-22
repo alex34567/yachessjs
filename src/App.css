@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.ChessBoard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: min(90vh, 90vw);
+  height: min(90vh, 90vw);
+  padding-top: min(5vh, 5vw);
+  padding-left: min(5vh, 5vw);
+}
+
+.ChessPiece {
+  height: 95%;
+  width: 95%;
+}
+
+.ChessBoardSquare {
+  position: relative;
+  width: min(11.25vh, 11.25vw);
+  height: min(11.25vh, 11.25vw);
+}
+
+.ChessBoardSquareWhite {
+  background-color: lightgray;
+}
+
+.ChessBoardSquareWhite.Highlighted {
+  background-color: #e9e969;
+}
+
+.ChessBoardSquareBlack {
+  background-color: darkgray;
+}
+
+.ChessBoardSquareBlack.Highlighted {
+  background-color: #d4d454;
+}
+
+.CaptureCircle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.PromoteMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
