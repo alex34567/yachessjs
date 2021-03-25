@@ -7,12 +7,13 @@ import { Move, Promotion } from './logic/moves'
 import * as immutable from 'immutable'
 
 interface BoardSquareProps {
-  isBlack: boolean
+  isBlack?: boolean
+  inCheck?: boolean
   piece: Square
   onClick?: () => void
-  highlighted: boolean
-  canMoveTo: boolean
-  children?: React.ReactNode | React.ReactNode[]
+  highlighted?: boolean
+  canMoveTo?: boolean
+  children?: React.ReactNode
 }
 
 function getPieceName (piece: Square): string | undefined {
@@ -60,25 +61,38 @@ function BoardSquare (props: BoardSquareProps) {
   } else {
     className += ' ChessBoardSquareWhite'
   }
+  let highlight
   if (props.highlighted) {
-    className += ' Highlighted'
+    highlight =
+        <svg className='Overlay'>
+          <rect width='100%' height='100%' fill='yellow' fillOpacity='.5' />
+        </svg>
+  }
+  let checkHighlight
+  if (props.inCheck) {
+    checkHighlight =
+        <svg className='Overlay'>
+          <rect width='100%' height='100%' fill='red' fillOpacity='.5' />
+        </svg>
   }
   const pieceImage = getPieceImage(props.piece)
   let moveIndicator
   if (props.canMoveTo && !pieceImage) {
     moveIndicator =
-        <svg className='CaptureCircle' xmlns='http://www.w3.org/2000/svg'>
+        <svg className='Overlay'>
           <circle r='10%' cx='50%' cy='50%' />
         </svg>
   }
   if (props.canMoveTo && pieceImage) {
     moveIndicator =
-        <svg className='CaptureCircle' xmlns='http://www.w3.org/2000/svg'>
+        <svg className='Overlay'>
           <circle r='47.5%' cx='50%' cy='50%' fill='none' stroke='black' strokeWidth='2.5%' />
         </svg>
   }
   return (
       <div className={className} onClick={props.onClick}>
+        {highlight}
+        {checkHighlight}
         {pieceImage}
         {moveIndicator}
         {props.children}
@@ -98,7 +112,7 @@ function PromoteMenu (props: PromoteMenuProps) {
     const onClick = () => {
       props.onPromote(move.do())
     }
-    promotes.push(<BoardSquare key={key++} isBlack={false} piece={move.promoteChoice} highlighted={false} canMoveTo={false} onClick={onClick} />)
+    promotes.push(<BoardSquare key={key++} piece={move.promoteChoice} onClick={onClick} />)
   }
   return (
       <div className='PromoteMenu'>
@@ -108,16 +122,20 @@ function PromoteMenu (props: PromoteMenuProps) {
 }
 
 interface ChessBoardState {
-  state: State
   highlightedPos: Pos | null
   promotePos: Pos | null
 }
 
-class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
-  constructor (props: {}) {
+interface ChessBoardProps {
+  state: State
+  makeMove: (state: State) => void
+  disabled?: boolean
+}
+
+class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
+  constructor (props: ChessBoardProps) {
     super(props)
     this.state = {
-      state: getStartState(),
       highlightedPos: null,
       promotePos: null
     }
@@ -129,36 +147,37 @@ class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
     let moves: Move[] = []
     const highlightedPos = this.state.highlightedPos
     let drawPromotePos = this.state.promotePos
-    if (drawPromotePos && this.state.state.currTurn === BLACK) {
+    if (drawPromotePos && this.props.state.currTurn === BLACK) {
       drawPromotePos = drawPromotePos.addRank(3)
     }
-    if (highlightedPos) {
-      moves = this.state.state.moves().filter(move => {
-        if (move.invalid()) {
+    if (highlightedPos && !this.props.disabled) {
+      moves = this.props.state.moves().filter(move => {
+        if (move.invalid() || this.props.disabled) {
           return false
         }
         if (move.isNormal()) {
           return move.fromPos.compare(highlightedPos) === 0
         }
         if (move.isCastle()) {
-          return highlightedPos.rank === this.state.state.currTurn.KING_RANK && highlightedPos.file === 4
+          return highlightedPos.rank === this.props.state.currTurn.KING_RANK && highlightedPos.file === 4
         }
         return false
       })
     }
     for (let i = 7; i >= 0; i--) {
       isBlack = !isBlack
-      for (let j = 7; j >= 0; j--) {
+      for (let j = 0; j < 8; j++) {
         isBlack = !isBlack
         const pos = new Pos(j, i)
         const highlighted = Boolean(highlightedPos && pos.compare(highlightedPos) === 0)
-        const piece = this.state.state.board.get(new Pos(j, i))
+        const piece = this.props.state.board.get(new Pos(j, i))
+        const inCheck = piece === this.props.state.currTurn.KING && this.props.state.isCheck()
         const moveIndex = moves.findIndex(move => {
           if (move.isNormal()) {
             return move.toPos.compare(pos) === 0
           }
           if (move.isCastle()) {
-            if (pos.rank !== this.state.state.currTurn.KING_RANK) {
+            if (pos.rank !== this.props.state.currTurn.KING_RANK) {
               return false
             }
             if (move.isKingSide) {
@@ -179,7 +198,8 @@ class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
           }
         } else if (moveIndex >= 0 && move.isNormal() && !move.isPromote()) {
           onClick = () => {
-            this.setState({ highlightedPos: null, state: moves[moveIndex].do(), promotePos: null })
+            this.props.makeMove(moves[moveIndex].do())
+            this.setState({ highlightedPos: null, promotePos: null })
           }
         } else if (moveIndex >= 0 && move.isNormal() && move.isPromote() && !this.state.promotePos) {
           const promote = move
@@ -190,7 +210,8 @@ class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
         let promoteMenu
         if (drawPromotePos && pos.compare(drawPromotePos) === 0) {
           const onPromote = (state: State) => {
-            this.setState({ state })
+            this.props.makeMove(state)
+            this.setState({ highlightedPos: null, promotePos: null })
           }
           const that = this
           function PromoteFilter (move: Move): move is Promotion {
@@ -206,7 +227,7 @@ class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
         }
         const canMoveTo = moveIndex >= 0 && !this.state.promotePos
         squares.push(
-            <BoardSquare key={i * 8 + j} canMoveTo={canMoveTo} isBlack={isBlack} piece={piece} highlighted={highlighted} onClick={onClick}>
+            <BoardSquare key={i * 8 + j} canMoveTo={canMoveTo} isBlack={isBlack} piece={piece} highlighted={highlighted} inCheck={inCheck} onClick={onClick}>
               {promoteMenu}
             </BoardSquare>
         )
@@ -220,12 +241,26 @@ class ChessBoard extends React.PureComponent<{}, ChessBoardState> {
   }
 }
 
-function App () {
-  return (
-    <div className="App">
-      <ChessBoard />
-    </div>
-  )
+interface AppState {
+  state: State
+}
+
+class App extends React.PureComponent<{}, AppState> {
+  constructor (props: {}) {
+    super(props)
+    this.state = {
+      state: getStartState()
+    }
+  }
+
+  render () {
+    const makeMove = (state: State) => this.setState({ state })
+    return (
+        <div className="App">
+          <ChessBoard makeMove={makeMove} state={this.state.state} />
+        </div>
+    )
+  }
 }
 
 export default App
