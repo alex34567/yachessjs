@@ -1,4 +1,6 @@
 import { State } from './logic/state'
+import { convertFileLetter, convertRankLetter, Pos } from './logic/util'
+import { Piece } from './logic/pieces'
 
 export abstract class Player {
     abstract makeMove(state: State): Promise<State>
@@ -47,5 +49,88 @@ export class MrRandom extends Player {
 
   close () {
     clearTimeout(this.timeoutID)
+  }
+}
+
+export class Stockfish extends Player {
+  stockfishHandle?: Worker
+  state?: State
+  resolve?: (state: State) => void
+  level: number
+
+  constructor (level: number) {
+    super()
+    this.level = level
+    this.parseStockfishLine = this.parseStockfishLine.bind(this)
+  }
+
+  name () {
+    return 'Stockfish'
+  }
+
+  makeMove (state: State): Promise<State> {
+    return new Promise(resolve => {
+      this.state = state
+      if (!this.stockfishHandle) {
+        const wasmSupported = typeof WebAssembly === 'object' && WebAssembly.validate(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00))
+        this.stockfishHandle = new Worker(wasmSupported ? process.env.PUBLIC_URL + 'stockfish.js/stockfish.wasm.js' : process.env.PUBLIC_URL + 'stockfish.js/stockfish.js')
+        this.stockfishHandle.addEventListener('message', this.parseStockfishLine)
+        this.stockfishHandle.postMessage('uci')
+      } else {
+        this.giveStateToStockfish()
+      }
+      this.resolve = resolve
+    })
+  }
+
+  giveStateToStockfish () {
+    this.stockfishHandle!.postMessage(`position fen ${this.state?.toFen()}`)
+    this.stockfishHandle!.postMessage('go movetime 5000')
+  }
+
+  parseStockfishLine (event: MessageEvent<string>) {
+    const line = event.data
+    // console.log(line)
+    const command = line.split(/\s+/).map(x => x.trim()).filter(x => x)
+    switch (command[0]) {
+      case 'uciok':
+        this.stockfishHandle!.postMessage(`setoption name Skill Level value ${this.level}`)
+        this.stockfishHandle!.postMessage('ucinewgame')
+        this.giveStateToStockfish()
+        break
+      case 'bestmove': {
+        const rawMove = command[1]
+        const fromPos = new Pos(convertFileLetter(rawMove[0]), convertRankLetter(rawMove[1]))
+        const toPos = new Pos(convertFileLetter(rawMove[2]), convertRankLetter(rawMove[3]))
+        let promoteChoice: Piece | undefined
+        if (rawMove[4]) {
+          promoteChoice = this.state!.currTurn.FROM_LETTER.get(rawMove[4].toUpperCase())
+        }
+        const moves = this.state!.moves().filter(x => {
+          if (x.isCastle() && fromPos.rank === this.state!.currTurn.KING_RANK && toPos.rank === fromPos.rank && fromPos.file === 4) {
+            if (x.isKingSide && toPos.file === 6) {
+              return true
+            } else if (!x.isKingSide && toPos.file === 2) {
+              return true
+            }
+          }
+          if (x.isNormal() && x.fromPos.compare(fromPos) === 0 && x.toPos.compare(toPos) === 0) {
+            if (x.isPromote()) {
+              return promoteChoice === x.promoteChoice
+            }
+            return true
+          }
+          return false
+        })
+        this.resolve!(moves[0].do())
+        break
+      }
+    }
+  }
+
+  close () {
+    if (this.stockfishHandle) {
+      this.stockfishHandle.terminate()
+    }
   }
 }

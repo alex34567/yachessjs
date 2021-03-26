@@ -5,7 +5,7 @@ import { Square, WHITE, BLACK } from './logic/pieces'
 import { getStartState, State } from './logic/state'
 import { Move, Promotion } from './logic/moves'
 import * as immutable from 'immutable'
-import { Human, MrRandom, Player } from './player'
+import { Human, MrRandom, Player, Stockfish } from './player'
 import { useEffect, useReducer, useState } from 'react'
 
 interface BoardSquareProps {
@@ -129,8 +129,8 @@ interface ChessBoardProps {
 }
 
 function ChessBoard (props: ChessBoardProps) {
-  const [highlightedPos, setHighlightedPos] = useState(null as Pos | null)
-  const [promotePos, setPromotePos] = useState(null as Pos | null)
+  const [highlightedPos, setHighlightedPos] = useState<Pos | null>(null)
+  const [promotePos, setPromotePos] = useState<Pos | null>(null)
 
   if (highlightedPos && !props.state.board.get(highlightedPos).isOccupied()) {
     setHighlightedPos(null)
@@ -236,61 +236,94 @@ function ChessBoard (props: ChessBoardProps) {
   )
 }
 
-type PlayerSel = 'human' | 'random'
+type PlayerSel = 'human' | 'random' | 'stockfish'
 
 interface PlayerSelectorProps {
-  onPlayerChange: (playerCons: new () => Player) => void
+  onPlayerChange: (playerCons: () => Player) => void
 }
 
 function PlayerSelector (props: PlayerSelectorProps) {
-  const [currSel, setCurrSel] = useState('human' as PlayerSel)
+  const [currSel, setCurrSel] = useState<PlayerSel>('human')
+  const [stockfishLevel, setStockfishLevel] = useState(0)
 
-  const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSel = event.target.value as PlayerSel
-    setCurrSel(newSel)
+  useEffect(() => {
     let playerCons
-    switch (newSel) {
+    switch (currSel) {
       case 'human':
-        playerCons = Human
+        playerCons = () => new Human()
         break
       case 'random':
-        playerCons = MrRandom
+        playerCons = () => new MrRandom()
+        break
+      case 'stockfish':
+        playerCons = () => new Stockfish(stockfishLevel)
         break
     }
 
     props.onPlayerChange(playerCons)
+  }, [currSel, stockfishLevel])
+
+  const onSelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newSel = event.target.value as PlayerSel
+    setCurrSel(newSel)
+  }
+
+  const onDiffChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newDiff = Number(event.target.value)
+    setStockfishLevel(newDiff)
+  }
+
+  if (currSel !== 'stockfish' && stockfishLevel !== 0) {
+    setStockfishLevel(0)
+  }
+
+  let stockfishDifficultySlider
+  if (currSel === 'stockfish') {
+    stockfishDifficultySlider =
+      <>
+        <br/>
+        <label>Stockfish Level: {stockfishLevel}</label>
+        <br/>
+        <input type='range' min='0' max='20' onChange={onDiffChange} value={stockfishLevel} />
+      </>
   }
 
   return (
-    <select value={currSel} onChange={onChange}>
-      <option value='human'>
-        Human
-      </option>
-      <option value='random'>
-        MrRandom
-      </option>
-    </select>
+    <>
+      <select value={currSel} onChange={onSelChange}>
+        <option value='human'>
+          Human
+        </option>
+        <option value='random'>
+          MrRandom
+        </option>
+        <option value='stockfish'>
+          Stockfish
+        </option>
+      </select>
+      {stockfishDifficultySlider}
+    </>
   )
 }
 
 interface GameInfoProps {
   state: State
-  restart: (white: Player, black: Player, state: State) => void
+  restart: (white: Player, black: Player) => void
 }
 
 function GameInfo (props: GameInfoProps) {
-  const [[WhiteCons], setWhiteCons] = useState([Human])
-  const [[BlackCons], setBlackCons] = useState([Human])
+  const [[WhiteCons], setWhiteCons] = useState<[() => Player]>([() => new Human()])
+  const [[BlackCons], setBlackCons] = useState<[() => Player]>([() => new Human()])
 
   const restartButton = () => {
-    props.restart(new WhiteCons(), new BlackCons(), getStartState())
+    props.restart(WhiteCons(), BlackCons())
   }
 
-  const onWhiteChange = (player: new () => Player) => {
+  const onWhiteChange = (player: () => Player) => {
     setWhiteCons([player])
   }
 
-  const onBlackChange = (player: new () => Player) => {
+  const onBlackChange = (player: () => Player) => {
     setBlackCons([player])
   }
 
@@ -318,9 +351,10 @@ function GameInfo (props: GameInfoProps) {
 }
 
 function App (props: {}) {
-  const [white, setWhite] = useState(new Human())
-  const [black, setBlack] = useState(new Human())
-  const [state, setState] = useState(getStartState())
+  const [white, setWhite] = useState<Player>(new Human())
+  const [black, setBlack] = useState<Player>(new Human())
+  const beginState = getStartState()
+  const [state, setState] = useState(beginState)
   const forceUpdate = useReducer(x => x + 1, 0)[1]
 
   useEffect(() => {
@@ -338,7 +372,7 @@ function App (props: {}) {
       setState(state)
       return ret
     }
-    player1.makeMove(getStartState()).then(makeMoveThen)
+    player1.makeMove(beginState).then(makeMoveThen)
     forceUpdate()
     return () => {
       white.close()
@@ -346,12 +380,12 @@ function App (props: {}) {
     }
   }, [white, black])
 
-  const restart = (white: Player, black: Player, state: State) => {
+  const restart = (white: Player, black: Player) => {
     white.close()
     black.close()
     setWhite(white)
     setBlack(black)
-    setState(state)
+    setState(beginState)
   }
 
   let currPlayer = white
