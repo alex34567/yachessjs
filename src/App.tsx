@@ -5,6 +5,7 @@ import { Square, WHITE, BLACK } from './logic/pieces'
 import { getStartState, State } from './logic/state'
 import { Move, Promotion } from './logic/moves'
 import * as immutable from 'immutable'
+import { Human, MrRandom, Player } from './player'
 
 interface BoardSquareProps {
   isBlack?: boolean
@@ -128,8 +129,7 @@ interface ChessBoardState {
 
 interface ChessBoardProps {
   state: State
-  makeMove: (state: State) => void
-  disabled?: boolean
+  makeMove?: (state: State) => void
 }
 
 class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
@@ -141,6 +141,13 @@ class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
     }
   }
 
+  static getDerivedStateFromProps (props: ChessBoardProps, state: ChessBoardState) {
+    if (state.highlightedPos && !props.state.board.get(state.highlightedPos).isOccupied()) {
+      return { highlightedPos: null }
+    }
+    return null
+  }
+
   render (): React.ReactElement {
     const squares = []
     let isBlack = false
@@ -150,9 +157,9 @@ class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
     if (drawPromotePos && this.props.state.currTurn === BLACK) {
       drawPromotePos = drawPromotePos.addRank(3)
     }
-    if (highlightedPos && !this.props.disabled) {
+    if (highlightedPos && this.props.makeMove) {
       moves = this.props.state.moves().filter(move => {
-        if (move.invalid() || this.props.disabled) {
+        if (move.invalid() || this.props.state.isGameOver()) {
           return false
         }
         if (move.isNormal()) {
@@ -196,9 +203,9 @@ class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
           onClick = () => {
             this.setState({ highlightedPos: pos, promotePos: null })
           }
-        } else if (moveIndex >= 0 && move.isNormal() && !move.isPromote()) {
+        } else if (moveIndex >= 0 && ((move.isNormal() && !move.isPromote()) || move.isCastle())) {
           onClick = () => {
-            this.props.makeMove(moves[moveIndex].do())
+            this.props.makeMove!(moves[moveIndex].do())
             this.setState({ highlightedPos: null, promotePos: null })
           }
         } else if (moveIndex >= 0 && move.isNormal() && move.isPromote() && !this.state.promotePos) {
@@ -210,7 +217,7 @@ class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
         let promoteMenu
         if (drawPromotePos && pos.compare(drawPromotePos) === 0) {
           const onPromote = (state: State) => {
-            this.props.makeMove(state)
+            this.props.makeMove!(state)
             this.setState({ highlightedPos: null, promotePos: null })
           }
           const that = this
@@ -241,25 +248,178 @@ class ChessBoard extends React.PureComponent<ChessBoardProps, ChessBoardState> {
   }
 }
 
-interface AppState {
-  state: State
+type PlayerSel = 'human' | 'random'
+
+interface PlayerSelectorProps {
+  onPlayerChange: (playerCons: new () => Player) => void
 }
 
-class App extends React.PureComponent<{}, AppState> {
-  constructor (props: {}) {
+interface PlayerSelectorState {
+  currSel: PlayerSel
+}
+
+class PlayerSelector extends React.PureComponent<PlayerSelectorProps, PlayerSelectorState> {
+  constructor (props: PlayerSelectorProps) {
     super(props)
     this.state = {
-      state: getStartState()
+      currSel: 'human'
     }
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange (event: React.ChangeEvent<HTMLSelectElement>) {
+    const newSel = event.target.value as PlayerSel
+    this.setState({ currSel: newSel })
+    let playerCons
+    switch (newSel) {
+      case 'human':
+        playerCons = Human
+        break
+      case 'random':
+        playerCons = MrRandom
+        break
+    }
+
+    this.props.onPlayerChange(playerCons)
   }
 
   render () {
-    const makeMove = (state: State) => this.setState({ state })
+    return (
+      <select value={this.state.currSel} onChange={this.onChange}>
+        <option value='human'>
+          Human
+        </option>
+        <option value='random'>
+          MrRandom
+        </option>
+      </select>
+    )
+  }
+}
+
+interface GameInfoProps {
+  state: State
+  restart: (white: Player, black: Player, state: State) => void
+}
+
+interface GameInfoState {
+  WhiteCons: new () => Player,
+  BlackCons: new () => Player,
+}
+
+class GameInfo extends React.Component<GameInfoProps, GameInfoState> {
+  constructor (props: GameInfoProps) {
+    super(props)
+    this.state = {
+      WhiteCons: Human,
+      BlackCons: Human
+    }
+    this.restartButton = this.restartButton.bind(this)
+    this.onWhiteChange = this.onWhiteChange.bind(this)
+    this.onBlackChange = this.onBlackChange.bind(this)
+  }
+
+  onWhiteChange (player: new () => Player) {
+    this.setState({ WhiteCons: player })
+  }
+
+  onBlackChange (player: new () => Player) {
+    this.setState({ BlackCons: player })
+  }
+
+  restartButton () {
+    this.props.restart(new this.state.WhiteCons(), new this.state.BlackCons(), getStartState())
+  }
+
+  render (): React.ReactElement {
+    let checkmateText
+    if (this.props.state.isCheckmate()) {
+      checkmateText = 'Checkmate'
+    } else if (this.props.state.isDraw()) {
+      checkmateText = `Draw due to ${this.props.state.drawReason()}`
+    }
+    return (
+      <div className='GameInfo'>
+        {checkmateText}
+        <br/>
+        <button onClick={this.restartButton}>
+          Restart
+        </button>
+        <br/>
+        <label>White Player </label>
+        <PlayerSelector onPlayerChange={this.onWhiteChange} />
+        <br/>
+        <label>Black Player </label>
+        <PlayerSelector onPlayerChange={this.onBlackChange} />
+      </div>
+    )
+  }
+}
+
+interface AppState {
+  white: Player
+  black: Player
+  state: State
+}
+
+class App extends React.Component<{}, AppState> {
+  constructor (props: {}) {
+    super(props)
+    const white = new Human()
+    const black = new Human()
+    const state = getStartState()
+    this.state = {
+      state: state,
+      white,
+      black
+    }
+    this.restart = this.restart.bind(this)
+  }
+
+  restart (white: Player, black: Player, state: State) {
+    this.state.white.close()
+    this.state.black.close()
+    this.initPlayer(white, black, state)
+    this.setState({ white, black, state })
+  }
+
+  initPlayer (player1: Player, player2: Player, start: State) {
+    const makeMoveThen = (state: State): Promise<unknown> | undefined => {
+      if (state.isGameOver()) {
+        this.setState({ state })
+        return
+      }
+      const tmp = player1
+      player1 = player2
+      player2 = tmp
+      const ret = player1.makeMove(state).then(makeMoveThen)
+      this.setState({ state })
+      return ret
+    }
+    player1.makeMove(start).then(makeMoveThen)
+  }
+
+  render () {
+    let currPlayer = this.state.white
+    if (this.state.state.currTurn === BLACK) {
+      currPlayer = this.state.black
+    }
     return (
         <div className="App">
-          <ChessBoard makeMove={makeMove} state={this.state.state} />
+          <ChessBoard makeMove={currPlayer.getBoardClick()} state={this.state.state} />
+          <GameInfo state={this.state.state} restart={this.restart} />
         </div>
     )
+  }
+
+  componentDidMount () {
+    this.initPlayer(this.state.white, this.state.black, this.state.state)
+    this.forceUpdate()
+  }
+
+  componentWillUnmount () {
+    this.state.white.close()
+    this.state.black.close()
   }
 }
 
