@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render black 1`] = `
+<div>
+  <div
+    class="PromoteMenu"
+  >
+    <div
+      data-name="q"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-name="r"
+    />
+    <div
+      data-name="b"
+    />
+  </div>
+</div>
+`;
+
+exports[`render white 1`] = `
+<div>
+  <div
+    class="PromoteMenu"
+  >
+    <div
+      data-name="Q"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+    <div
+      data-name="B"
+    />
+  </div>
+</div>
+`;
