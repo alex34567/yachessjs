@@ -6,17 +6,29 @@ import { BLACK } from './logic/pieces'
 import ChessBoard from './ChessBoard'
 import GameInfo from './GameInfo'
 
+interface Players {
+  white: Player
+  black: Player
+}
+
 export default function PlayMode (props: {}) {
-  const [white, setWhite] = useState<Player>(new Human())
-  const [black, setBlack] = useState<Player>(new Human())
+  const [players, setPlayers] = useState<Players>({ white: new Human(), black: new Human() })
   const beginState = getStartState()
   const [state, setState] = useState(beginState)
   const forceUpdate = useReducer(x => x + 1, 0)[1]
 
   useEffect(() => {
-    let player1 = white
-    let player2 = black
+    // If someone pushes the reset button at the exact time a move is ready,
+    // then the board will be corrupted with the move that have been be canceled.
+    // This variable blocks the board from updating in the promise handler,
+    // preventing this race condition.
+    let stateValid = true
+    let player1 = players.white
+    let player2 = players.black
     const makeMoveThen = (state: State): Promise<unknown> | undefined => {
+      if (!stateValid) {
+        return
+      }
       if (state.isGameOver()) {
         setState(state)
         return
@@ -29,24 +41,22 @@ export default function PlayMode (props: {}) {
       return ret
     }
     player1.makeMove(beginState).then(makeMoveThen)
+    setState(beginState)
     forceUpdate()
     return () => {
-      white.close()
-      black.close()
+      stateValid = false
+      players.white.close()
+      players.black.close()
     }
-  }, [white, black])
+  }, [players])
 
   const restart = (white: Player, black: Player) => {
-    white.close()
-    black.close()
-    setWhite(white)
-    setBlack(black)
-    setState(beginState)
+    setPlayers({ white, black })
   }
 
-  let currPlayer = white
+  let currPlayer = players.white
   if (state.currTurn === BLACK) {
-    currPlayer = black
+    currPlayer = players.black
   }
   return (
     <div className="App">

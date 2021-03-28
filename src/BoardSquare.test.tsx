@@ -4,6 +4,7 @@ import * as Pieces from './logic/pieces'
 import React from 'react'
 import { render, unmountComponentAtNode } from 'react-dom'
 
+// Setup code adapted react docs
 let container: HTMLDivElement | null = null
 beforeEach(() => {
   // setup a DOM element as a render target
