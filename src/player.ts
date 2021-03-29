@@ -134,3 +134,89 @@ export class Stockfish extends Player {
     }
   }
 }
+
+export abstract class PlayerFactory {
+  abstract name (): string
+  abstract build (): Player
+  abstract id (): string
+  difficulty (): number | undefined {
+    return undefined
+  }
+
+  setDifficulty (x: number): PlayerFactory {
+    return this
+  }
+
+  minDifficulty (): number | undefined {
+    return undefined
+  }
+
+  maxDifficulty (): number | undefined {
+    return undefined
+  }
+}
+
+export class HumanFactory extends PlayerFactory {
+  name (): string {
+    return 'Human'
+  }
+
+  build (): Player {
+    return new Human()
+  }
+
+  id (): string {
+    return 'human'
+  }
+}
+
+export class RandomFactory extends PlayerFactory {
+  name (): string {
+    return 'Mr. Random'
+  }
+
+  build (): Player {
+    return new MrRandom()
+  }
+
+  id (): string {
+    return 'random'
+  }
+}
+
+export class StockfishFactory extends PlayerFactory {
+  rawDifficulty: number
+
+  constructor (difficulty?: number) {
+    super()
+    this.rawDifficulty = difficulty || 0
+  }
+
+  difficulty (): number | undefined {
+    return this.rawDifficulty
+  }
+
+  minDifficulty (): number | undefined {
+    return 0
+  }
+
+  maxDifficulty (): number | undefined {
+    return 20
+  }
+
+  setDifficulty (x: number): PlayerFactory {
+    return new StockfishFactory(x)
+  }
+
+  name (): string {
+    return 'Stockfish'
+  }
+
+  build (): Player {
+    return new Stockfish(this.rawDifficulty)
+  }
+
+  id (): string {
+    return 'stockfish'
+  }
+}

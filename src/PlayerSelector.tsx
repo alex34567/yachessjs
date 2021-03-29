@@ -1,62 +1,49 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
-import { Human, MrRandom, Player, Stockfish } from './player'
-
-type PlayerSel = 'human' | 'random' | 'stockfish'
+import { HumanFactory, PlayerFactory, RandomFactory, StockfishFactory } from './player'
 
 export interface PlayerSelectorProps {
-  onPlayerChange: (playerCons: () => Player) => void
+  value: PlayerFactory
+  onPlayerChange: (playerFactory: PlayerFactory) => void
 }
 
 export default function PlayerSelector (props: PlayerSelectorProps) {
-  const [currSel, setCurrSel] = useState<PlayerSel>('human')
-  const [stockfishLevel, setStockfishLevel] = useState(0)
-
-  useEffect(() => {
-    let playerCons
-    switch (currSel) {
+  const onSelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    let newSel
+    switch (event.target.value) {
       case 'human':
-        playerCons = () => new Human()
+        newSel = new HumanFactory()
         break
       case 'random':
-        playerCons = () => new MrRandom()
+        newSel = new RandomFactory()
         break
       case 'stockfish':
-        playerCons = () => new Stockfish(stockfishLevel)
+        newSel = new StockfishFactory()
         break
+      default:
+        return
     }
-
-    props.onPlayerChange(playerCons)
-  }, [currSel, stockfishLevel])
-
-  const onSelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSel = event.target.value as PlayerSel
-    setCurrSel(newSel)
+    props.onPlayerChange(newSel)
   }
 
   const onDiffChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newDiff = Number(event.target.value)
-    setStockfishLevel(newDiff)
+    props.onPlayerChange(props.value.setDifficulty(newDiff))
   }
 
-  if (currSel !== 'stockfish' && stockfishLevel !== 0) {
-    setStockfishLevel(0)
-  }
-
-  let stockfishDifficultySlider
-  if (currSel === 'stockfish') {
-    stockfishDifficultySlider =
+  let difficultySlider
+  if (props.value.difficulty() !== undefined) {
+    difficultySlider =
       <>
         <br/>
-        <label>Stockfish Level: {stockfishLevel}</label>
+        <label>{props.value.name()} Level: {props.value.difficulty()}</label>
         <br/>
-        <input type='range' min='0' max='20' onChange={onDiffChange} value={stockfishLevel}/>
+        <input type='range' min={props.value.minDifficulty()} max={props.value.maxDifficulty()} onChange={onDiffChange} value={props.value.difficulty()}/>
       </>
   }
 
   return (
     <>
-      <select value={currSel} onChange={onSelChange}>
+      <select value={props.value.id()} onChange={onSelChange}>
         <option value='human'>
           Human
         </option>
@@ -67,7 +54,7 @@ export default function PlayerSelector (props: PlayerSelectorProps) {
           Stockfish
         </option>
       </select>
-      {stockfishDifficultySlider}
+      {difficultySlider}
     </>
   )
 }

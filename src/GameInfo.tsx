@@ -1,5 +1,5 @@
 import { State } from './logic/state'
-import { Human, Player } from './player'
+import { HumanFactory, Player, PlayerFactory } from './player'
 import * as React from 'react'
 import { useState } from 'react'
 import PlayerSelector from './PlayerSelector'
@@ -10,19 +10,19 @@ interface GameInfoProps {
 }
 
 export default function GameInfo (props: GameInfoProps) {
-  const [[WhiteCons], setWhiteCons] = useState<[() => Player]>([() => new Human()])
-  const [[BlackCons], setBlackCons] = useState<[() => Player]>([() => new Human()])
+  const [whiteFactory, setWhiteFactory] = useState<PlayerFactory>(new HumanFactory())
+  const [blackFactory, setBlackFactory] = useState<PlayerFactory>(new HumanFactory())
 
   const restartButton = () => {
-    props.restart(WhiteCons(), BlackCons())
+    props.restart(whiteFactory.build(), blackFactory.build())
   }
 
-  const onWhiteChange = (player: () => Player) => {
-    setWhiteCons([player])
+  const onWhiteChange = (player: PlayerFactory) => {
+    setWhiteFactory(player)
   }
 
-  const onBlackChange = (player: () => Player) => {
-    setBlackCons([player])
+  const onBlackChange = (player: PlayerFactory) => {
+    setBlackFactory(player)
   }
 
   let checkmateText
@@ -40,10 +40,10 @@ export default function GameInfo (props: GameInfoProps) {
       </button>
       <br/>
       <label>White Player </label>
-      <PlayerSelector onPlayerChange={onWhiteChange}/>
+      <PlayerSelector onPlayerChange={onWhiteChange} value={whiteFactory}/>
       <br/>
       <label>Black Player </label>
-      <PlayerSelector onPlayerChange={onBlackChange}/>
+      <PlayerSelector onPlayerChange={onBlackChange} value={blackFactory}/>
     </div>
   )
 }
