@@ -71,7 +71,9 @@ export default function ChessBoard (props: ChessBoardProps) {
         setPromotePos(null)
       }
       const move = moves[moveIndex]
-      if (moveIndex === -1 && piece.isOccupied()) {
+      if (highlightedPos && pos.compare(highlightedPos) === 0) {
+        // deselect on selecting the same piece twice
+      } else if (moveIndex === -1 && piece.isOccupied()) {
         onClick = () => {
           setHighlightedPos(pos)
           setPromotePos(null)
