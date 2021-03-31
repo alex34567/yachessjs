@@ -40,20 +40,6 @@ export default function PlayChessBoard (props: ChessBoardProps) {
   if (drawPromotePos && props.state.currTurn === BLACK) {
     drawPromotePos = drawPromotePos.addRank(3)
   }
-  if (highlightedPos && props.makeMove) {
-    moves = props.state.moves().filter(move => {
-      if (move.invalid() || props.state.isGameOver()) {
-        return false
-      }
-      if (move.isNormal()) {
-        return move.fromPos.compare(highlightedPos) === 0
-      }
-      if (move.isCastle()) {
-        return highlightedPos.rank === props.state.currTurn.KING_RANK && highlightedPos.file === 4
-      }
-      return false
-    })
-  }
   const moveInfo = (to: Pos) => {
     const moveIndex = moves.findIndex(move => {
       if (move.isNormal()) {
