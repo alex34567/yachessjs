@@ -3,7 +3,7 @@ import { useEffect, useReducer, useState } from 'react'
 import { Human, Player } from './player'
 import { getStartState, State } from './logic/state'
 import { BLACK } from './logic/pieces'
-import ChessBoard from './ChessBoard'
+import PlayChessBoard from './PlayChessBoard'
 import GameInfo from './GameInfo'
 
 interface Players {
@@ -60,7 +60,7 @@ export default function PlayMode (props: {}) {
   }
   return (
     <div className="App">
-      <ChessBoard makeMove={currPlayer.getBoardClick()} state={state}/>
+      <PlayChessBoard makeMove={currPlayer.getBoardClick()} state={state}/>
       <GameInfo state={state} restart={restart}/>
     </div>
   )
