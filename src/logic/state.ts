@@ -563,14 +563,14 @@ function stateFromFen (fen: string) {
   const black = new Player(pieces.BLACK)
   black.kingSideCastle = parsedFen[3].includes('k')
   black.queenSideCastle = parsedFen[3].includes('q')
-  if (board[new util.Pos(4, 7).toRaw()] !== pieces.WHITE.KING) {
+  if (board[new util.Pos(4, 7).toRaw()] !== pieces.BLACK.KING) {
     black.kingSideCastle = false
     black.queenSideCastle = false
   }
-  if (board[new util.Pos(0, 7).toRaw()] !== pieces.WHITE.ROOK) {
+  if (board[new util.Pos(0, 7).toRaw()] !== pieces.BLACK.ROOK) {
     black.kingSideCastle = false
   }
-  if (board[new util.Pos(7, 7).toRaw()] !== pieces.WHITE.ROOK) {
+  if (board[new util.Pos(7, 7).toRaw()] !== pieces.BLACK.ROOK) {
     black.kingSideCastle = false
   }
   const enPassantPos = parsedFen[4]
