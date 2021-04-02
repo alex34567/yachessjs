@@ -2,23 +2,33 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Pos } from './logic/util'
 import { Move, Promotion } from './logic/moves'
-import { BLACK } from './logic/pieces'
+import { BLACK, EMPTY, Piece } from './logic/pieces'
 import { State } from './logic/state'
 import * as immutable from 'immutable'
 import PromoteMenu from './PromoteMenu'
 import BoardSquare from './BoardSquare'
 
+export interface ChessBoardSetup {
+  setupPiece?: Piece
+}
+
 export interface ChessBoardProps {
   state: State
+  setup?: ChessBoardSetup
+  highlightedPos?: Pos
+  changeHighlight: (pos: Pos | undefined) => void
   makeMove?: (state: State) => void
 }
 
 export default function ChessBoard (props: ChessBoardProps) {
-  const [highlightedPos, setHighlightedPos] = useState<Pos | null>(null)
   const [promotePos, setPromotePos] = useState<Pos | null>(null)
+  const highlightedPos = props.highlightedPos
 
-  if (highlightedPos && !props.state.board.get(highlightedPos).isOccupied()) {
-    setHighlightedPos(null)
+  if (highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
+    props.changeHighlight(undefined)
+  }
+  if (!highlightedPos && promotePos) {
+    setPromotePos(null)
   }
 
   const squares = []
@@ -29,7 +39,7 @@ export default function ChessBoard (props: ChessBoardProps) {
     drawPromotePos = drawPromotePos.addRank(3)
   }
   if (highlightedPos && props.makeMove) {
-    moves = props.state.moves().filter(move => {
+    const moveFilter = (move: Move) => {
       if (move.invalid() || props.state.isGameOver()) {
         return false
       }
@@ -40,7 +50,12 @@ export default function ChessBoard (props: ChessBoardProps) {
         return highlightedPos.rank === props.state.currTurn.KING_RANK && highlightedPos.file === 4
       }
       return false
-    })
+    }
+    moves = props.state.moves().filter(moveFilter)
+    // Display black's moves as well
+    if (props.setup) {
+      moves = moves.concat(props.state.flipTurn().moves().filter(moveFilter))
+    }
   }
   for (let i = 7; i >= 0; i--) {
     isBlack = !isBlack
@@ -67,21 +82,41 @@ export default function ChessBoard (props: ChessBoardProps) {
         return false
       })
       let onClick = () => {
-        setHighlightedPos(null)
+        props.changeHighlight(undefined)
         setPromotePos(null)
       }
       const move = moves[moveIndex]
       if (highlightedPos && pos.compare(highlightedPos) === 0) {
         // deselect on selecting the same piece twice
+      } else if (highlightedPos && props.makeMove && props.setup) {
+        const makeMove = props.makeMove
+        onClick = () => {
+          makeMove(props.state.modify(state => {
+            const piece = state.board.get(highlightedPos)
+            state.board = state.board.set(highlightedPos, EMPTY)
+            state.board = state.board.set(pos, piece)
+          }))
+          props.changeHighlight(undefined)
+          setPromotePos(null)
+        }
+      } else if (props.setup && props.setup.setupPiece && props.makeMove) {
+        const makeMove = props.makeMove
+        const setupPiece = props.setup.setupPiece
+        onClick = () => {
+          makeMove(props.state.modify(state => {
+            state.board = state.board.set(pos, setupPiece)
+          }))
+          props.changeHighlight(undefined)
+        }
       } else if (moveIndex === -1 && piece.isOccupied()) {
         onClick = () => {
-          setHighlightedPos(pos)
+          props.changeHighlight(pos)
           setPromotePos(null)
         }
       } else if (moveIndex >= 0 && ((move.isNormal() && !move.isPromote()) || move.isCastle())) {
         onClick = () => {
           props.makeMove!(moves[moveIndex].do())
-          setHighlightedPos(null)
+          props.changeHighlight(undefined)
           setPromotePos(null)
         }
       } else if (moveIndex >= 0 && move.isNormal() && move.isPromote() && !promotePos) {
@@ -94,7 +129,7 @@ export default function ChessBoard (props: ChessBoardProps) {
       if (drawPromotePos && pos.compare(drawPromotePos) === 0) {
         const onPromote = (state: State) => {
           props.makeMove!(state)
-          setHighlightedPos(null)
+          props.changeHighlight(undefined)
           setPromotePos(null)
         }
 

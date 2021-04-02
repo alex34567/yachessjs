@@ -106,7 +106,9 @@ class Pawn extends Piece {
     const moveList: moves.Move[] = []
     const forwardMove = myPos.addRank(this.color.PAWN_RANK_DIR)
 
-    console.assert(forwardMove, 'Pawns can never end up on the final rank.')
+    if (!forwardMove) {
+      return moveList
+    }
     const forwardOccupied = state.board.get(forwardMove!).isOccupied()
     if (!forwardOccupied) {
       this.addMove(state, moveList, myPos, forwardMove!)

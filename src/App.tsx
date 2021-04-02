@@ -1,9 +1,9 @@
 import * as React from 'react'
 import './App.css'
-import PlayMode from './PlayMode'
+import SetupMode from './SetupMode'
 
-function App (props: {}) {
-  return <PlayMode/>
+function App (_props: {}) {
+  return <SetupMode/>
 }
 
 export default App

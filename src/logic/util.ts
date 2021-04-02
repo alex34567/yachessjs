@@ -43,6 +43,12 @@ class Pos {
     return this.rank * 8 + this.file
   }
 
+  static fromRaw (raw: number): Pos {
+    const rank = Math.floor(raw / 8)
+    const file = raw % 8
+    return new Pos(file, rank)
+  }
+
   toString () {
     const fileLetter = String.fromCharCode(this.file + 'a'.charCodeAt(0))
     const rankLetter = String(this.rank + 1)

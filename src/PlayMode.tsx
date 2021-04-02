@@ -5,6 +5,7 @@ import { getStartState, State } from './logic/state'
 import { BLACK } from './logic/pieces'
 import ChessBoard from './ChessBoard'
 import GameInfo from './GameInfo'
+import { Pos } from './logic/util'
 
 interface Players {
   white: Player
@@ -15,6 +16,7 @@ export default function PlayMode (props: {}) {
   const [players, setPlayers] = useState<Players>({ white: new Human(), black: new Human() })
   const beginState = getStartState()
   const [state, setState] = useState(beginState)
+  const [highlightedPos, setHighlightedPos] = useState<Pos>()
   const forceUpdate = useReducer(x => x + 1, 0)[1]
 
   useEffect(() => {
@@ -60,7 +62,7 @@ export default function PlayMode (props: {}) {
   }
   return (
     <div className="App">
-      <ChessBoard makeMove={currPlayer.getBoardClick()} state={state}/>
+      <ChessBoard changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state}/>
       <GameInfo state={state} restart={restart}/>
     </div>
   )

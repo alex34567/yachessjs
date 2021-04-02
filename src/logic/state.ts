@@ -43,6 +43,13 @@ class Board {
     return new Board(this.raw.set(pos.toRaw(), piece))
   }
 
+  reduce<ACC> (fun: (acc: ACC, piece: pieces.Square, pos: util.Pos, board: this) => ACC, acc: ACC) {
+    for (let i = 0; i < this.raw.size; i++) {
+      acc = fun(acc, this.raw.get(i)!, util.Pos.fromRaw(i), this)
+    }
+    return acc
+  }
+
   withMutations (fn: (board: Board) => void) {
     const raw = this.raw.withMutations(raw => {
       fn(new Board(raw))
@@ -543,9 +550,29 @@ function stateFromFen (fen: string) {
   const white = new Player(pieces.WHITE)
   white.kingSideCastle = parsedFen[3].includes('K')
   white.queenSideCastle = parsedFen[3].includes('Q')
+  if (board[new util.Pos(4, 0).toRaw()] !== pieces.WHITE.KING) {
+    white.kingSideCastle = false
+    white.queenSideCastle = false
+  }
+  if (board[new util.Pos(0, 0).toRaw()] !== pieces.WHITE.ROOK) {
+    white.kingSideCastle = false
+  }
+  if (board[new util.Pos(7, 0).toRaw()] !== pieces.WHITE.ROOK) {
+    white.kingSideCastle = false
+  }
   const black = new Player(pieces.BLACK)
   black.kingSideCastle = parsedFen[3].includes('k')
   black.queenSideCastle = parsedFen[3].includes('q')
+  if (board[new util.Pos(4, 7).toRaw()] !== pieces.WHITE.KING) {
+    black.kingSideCastle = false
+    black.queenSideCastle = false
+  }
+  if (board[new util.Pos(0, 7).toRaw()] !== pieces.WHITE.ROOK) {
+    black.kingSideCastle = false
+  }
+  if (board[new util.Pos(7, 7).toRaw()] !== pieces.WHITE.ROOK) {
+    black.kingSideCastle = false
+  }
   const enPassantPos = parsedFen[4]
   if (enPassantPos !== '-') {
     let enPassantPlayer = black

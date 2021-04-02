@@ -52,3 +52,34 @@
   margin-left: 5vmin;
   margin-top: 5vmin;
 }
+
+.ErrorText {
+  color: red;
+  font-weight: bold;
+}
+
+.SetupInfo {
+  margin-left: 5vmin;
+  margin-top: 5vmin;
+  width: 20vw;
+}
+
+.SetupErrorBox {
+  overflow: auto;
+  background-color: lightgrey;
+  width: 20vw;
+  height: 15vh;
+}
+
+.SetupPieceBox {
+  display: flex;
+}
+
+.LabelledTextbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.LabelledTextboxTextbox {
+  flex-grow: .9;
+}
