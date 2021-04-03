@@ -9,7 +9,6 @@ class Player {
   queenSideCastle: boolean
   kingSideCastle: boolean
   enPassantPos: util.Pos | null
-  checks: number
 
   constructor (arg1: Player | Readonly<pieces.Color>) {
     if (arg1 instanceof Player) {
@@ -18,13 +17,11 @@ class Player {
       this.queenSideCastle = other.queenSideCastle
       this.kingSideCastle = other.kingSideCastle
       this.enPassantPos = other.enPassantPos
-      this.checks = other.checks
     } else {
       this.color = arg1
       this.queenSideCastle = true
       this.kingSideCastle = true
       this.enPassantPos = null
-      this.checks = 0
     }
   }
 }
@@ -46,7 +43,7 @@ class Player {
       1: horizontal
       2: Left-Up/Right-Down
       3: Left-Down/Right-Up
-    x is set when this square is being attacked by the opponent
+    x is set when the king can not move to this square because a piece is protected
     p has multiple meanings depending on what kind of piece it is applied to:
         current player's piece: this piece is pinned (moving would put king in check)
         next player's piece: this piece is delivering check to the other player
@@ -103,7 +100,7 @@ export class Board {
     return (this.raw[pos.toRaw()] & 0x40) === 0x40
   }
 
-  isAttacked (pos: util.Pos): boolean {
+  isProtected (pos: util.Pos): boolean {
     return (this.raw[pos.toRaw()] & 0x80) === 0x80
   }
 
@@ -162,7 +159,7 @@ export class Board {
     }
   }
 
-  setAttacked (pos: util.Pos, attacked: boolean) {
+  setProtected (pos: util.Pos, attacked: boolean) {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= ~0x80
     rawValue |= Number(attacked) << 7
@@ -206,6 +203,7 @@ class State {
   threeFoldDetect: immutable.Map<string, number>
   resign: boolean
   agreeDraw: boolean
+  checks: number
 
   constructor (state?: State) {
     if (typeof state !== 'object') {
@@ -219,6 +217,7 @@ class State {
       this.threeFoldDetect = immutable.Map()
       this.resign = false
       this.agreeDraw = false
+      this.checks = 0
     } else {
       this.board = state.board
       this.white = new Player(state.white)
@@ -230,6 +229,7 @@ class State {
       this.threeFoldDetect = state.threeFoldDetect
       this.resign = state.resign
       this.agreeDraw = state.agreeDraw
+      this.checks = state.checks
     }
   }
 
@@ -322,8 +322,7 @@ class State {
     fn(newState)
     newState.board = newState.board.asMutable()
 
-    newState.white.checks = 0
-    newState.black.checks = 0
+    newState.checks = 0
     if (newState.board.get(new util.Pos(4, 0)) !== pieces.WHITE.KING) {
       newState.white.kingSideCastle = false
       newState.white.queenSideCastle = false
@@ -346,38 +345,58 @@ class State {
       newState.black.kingSideCastle = false
     }
 
-    const enPassantPossible = newState.moves().some(move => {
-      // Convert the en-passant into a non-en-passant to allow pin detection without an infinite loop
-      if (!move.isEnPassant()) {
-        return false
+    let enPassantPossible = false
+    let enPassantPos = newState.white.enPassantPos
+    if (newState.black.enPassantPos) {
+      enPassantPos = newState.black.enPassantPos
+    }
+    do {
+      if (!enPassantPos) {
+        break
       }
-      const enPassantPiecePos = move.toPos.addRank(-this.currTurn.PAWN_RANK_DIR)!
+      if (newState.board.get(enPassantPos) !== pieces.EMPTY) {
+        break
+      }
+      if (enPassantPos.rank !== newState.currTurn.OTHER_COLOR.PAWN_RANK - newState.currTurn.PAWN_RANK_DIR) {
+        break
+      }
+      const enPassantPiecePos = enPassantPos.addRank(-this.currTurn.PAWN_RANK_DIR)!
       if (newState.board.get(enPassantPiecePos) !== newState.currTurn.OTHER_COLOR.PAWN) {
-        return false
+        break
       }
-      const tmpState = newState.modify(x => {
-        x.white.enPassantPos = null
-        x.black.enPassantPos = null
-        // Hack the pawn back to its pos if the pawn only moved once
-        x.board = x.board.withMutations(board => {
-          board.set(enPassantPiecePos, pieces.EMPTY)
-          board.set(move.toPos, this.currTurn.OTHER_COLOR.PAWN)
-        })
+      const enPassPos = enPassantPos
+      const tmpState = newState.modify(tmpState => {
+        tmpState.white.enPassantPos = null
+        tmpState.black.enPassantPos = null
+        tmpState.board.set(enPassantPiecePos, pieces.EMPTY)
+        tmpState.board.set(enPassPos, this.currTurn.OTHER_COLOR.PAWN)
       })
-      return tmpState.moves().some(x => x.isNormal() && x.piece === newState.currTurn.PAWN && x.toPos.compare(move.toPos) === 0 && !x.invalid())
-    })
+      const leftDiag = enPassantPiecePos.addFile(-1)
+      if (leftDiag) {
+        const leftPawnPinned = tmpState.board.isPinned(leftDiag) && tmpState.board.getPinnedAxis(leftDiag) !== 3
+        if (tmpState.board.get(leftDiag) === this.currTurn.PAWN && !leftPawnPinned) {
+          enPassantPossible = true
+          break
+        }
+      }
+
+      const rightDiag = enPassantPiecePos.addFile(1)
+      if (rightDiag) {
+        const rightPawnPinned = tmpState.board.isPinned(rightDiag) && tmpState.board.getPinnedAxis(rightDiag) !== 2
+        if (tmpState.board.get(rightDiag) === this.currTurn.PAWN && !rightPawnPinned) {
+          enPassantPossible = true
+        }
+      }
+    } while (false)
+
     if (!enPassantPossible) {
       newState.white.enPassantPos = null
       newState.black.enPassantPos = null
     }
-    let kingPos
     for (let file = 0; file < 8; file++) {
       for (let rank = 0; rank < 8; rank++) {
         const pos = new util.Pos(file, rank)
         newState.board.clearFlags(pos)
-        if (newState.board.get(pos) === newState.currTurn.KING) {
-          kingPos = pos
-        }
       }
     }
 
@@ -386,20 +405,13 @@ class State {
         const pos = new util.Pos(file, rank)
         const piece = newState.board.get(pos)
         if (piece.isOccupied() && piece.color !== newState.currTurn) {
-          // Temp remove king so the king is not in the way of figuring out attacking squares
-          if (kingPos) {
-            newState.board.set(kingPos, pieces.EMPTY)
-          }
           const protects = piece.protects(newState, pos)
           for (const prot of protects) {
-            newState.board.setAttacked(prot, true)
-            if (kingPos && prot.compare(kingPos) === 0) {
-              newState.getColor(newState.currTurn).checks++
+            newState.board.setProtected(prot, true)
+            if (newState.board.get(prot) === newState.currTurn.KING) {
+              newState.checks++
               newState.board.setPinned(pos, true)
             }
-          }
-          if (kingPos) {
-            newState.board.set(kingPos, newState.currTurn.KING)
           }
           piece.pin(newState, pos)
         }
@@ -469,7 +481,7 @@ class State {
   }
 
   isCheck () {
-    return this.getColor(this.currTurn).checks !== 0
+    return this.checks !== 0
   }
 
   isCheckmate () {

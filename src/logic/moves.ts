@@ -107,12 +107,13 @@ class NormalMove extends Move {
 
   invalid (): string | false {
     if (this.piece === this.state.currTurn.KING) {
-      if (this.state.board.isAttacked(this.toPos)) {
+      if (this.state.board.isProtected(this.toPos)) {
         return 'Check'
       }
       return false
     } else {
-      if (this.state.getColor(this.state.currTurn).checks > 1) {
+      // In double check only the king is allowed to move
+      if (this.state.checks > 1) {
         return 'Check'
       }
       if (this.state.board.isPinned(this.fromPos)) {
@@ -138,7 +139,9 @@ class NormalMove extends Move {
           }
         }
       }
-      if (this.state.getColor(this.state.currTurn).checks === 1 && !this.state.board.isPinned(this.toPos)) {
+
+      // Piece must block check or capture checking piece
+      if (this.state.checks === 1 && !this.state.board.isPinned(this.toPos)) {
         return 'Check'
       }
       return false
@@ -237,7 +240,7 @@ class Castle extends Move {
   }
 
   invalid () {
-    if (this.state.getColor(this.state.currTurn).checks > 0) {
+    if (this.state.isCheck()) {
       return "Can't castle out of check"
     }
 
@@ -278,7 +281,7 @@ class Castle extends Move {
       badPos.push(new util.Pos(3, myRank))
     }
 
-    const attacked = badPos.some(pos => this.state.board.isAttacked(pos))
+    const attacked = badPos.some(pos => this.state.board.isProtected(pos))
     if (attacked) {
       return "Can't castle into or through check"
     }

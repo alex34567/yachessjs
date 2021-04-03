@@ -60,8 +60,9 @@ function protectLine (state: state.State, piece: Piece, fromPos: util.Pos, line:
   let toPos = fromPos.add(line[0], line[1])
   while (toPos && state.board.get(toPos).canMoveOnto(piece)) {
     protects.push(toPos)
-    // Once the piece hits another piece stop
-    if (state.board.get(toPos).canBeCaptured(piece)) {
+    // Once the piece hits another piece stop except for king
+    const targetPiece = state.board.get(toPos)
+    if (targetPiece.canBeCaptured(piece) && targetPiece !== state.currTurn.KING) {
       break
     }
     toPos = toPos.add(line[0], line[1])
