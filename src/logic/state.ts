@@ -9,6 +9,7 @@ class Player {
   queenSideCastle: boolean
   kingSideCastle: boolean
   enPassantPos: util.Pos | null
+  checks: number
 
   constructor (arg1: Player | Readonly<pieces.Color>) {
     if (arg1 instanceof Player) {
@@ -17,18 +18,20 @@ class Player {
       this.queenSideCastle = other.queenSideCastle
       this.kingSideCastle = other.kingSideCastle
       this.enPassantPos = other.enPassantPos
+      this.checks = other.checks
     } else {
       this.color = arg1
       this.queenSideCastle = true
       this.kingSideCastle = true
       this.enPassantPos = null
+      this.checks = 0
     }
   }
 }
 
-/* Board format uses an array of 64 16 bit ints as so:
+/* Board format uses an array of 64 8 bit ints as so:
   The mapping from (file, rank) to index is done according to rank * 8 + file.
-  Every square is an int in the form of ____________ciii where:
+  Every square is an int in the form of pxaaciii where:
     i is an int from 0 - 7 where:
       0: empty
       1: pawn
@@ -37,82 +40,139 @@ class Player {
       4: rook
       5: queen
       6: king
-      7: wall
     c is 1 for black 0 for white.
+    a is an int from 0 - 3 representing the axis that a piece can move when it's pinned where:
+      0: vertical (unpinned)
+      1: horizontal
+      2: Left-Up/Right-Down
+      3: Left-Down/Right-Up
+    x is set when this square is being attacked by the opponent
+    p has multiple meanings depending on what kind of piece it is applied to:
+        white piece: this piece is pinned (moving would put king in check)
+        black piece: this piece is delivering check to white
+        empty square: putting a piece here blocks check (except for double check where only the king can move)
+    b is a set of bitflags of similar form to w but with black and white swapped
  */
-class Board {
-  private readonly raw: Uint16Array
+export class Board {
+  private readonly raw: Uint8Array
   private readonly mutable: boolean
 
-  constructor (raw: Uint16Array, mutable: boolean) {
+  constructor (raw: Uint8Array, mutable: boolean) {
     this.raw = raw
     this.mutable = mutable
   }
 
   get (pos: util.Pos): pieces.Square {
     const rawPiece = this.raw[pos.toRaw()] & 0xF
-    let ret
     switch (rawPiece) {
       case 0:
-        ret = pieces.EMPTY
-        break
+        return pieces.EMPTY
       case 1:
-        ret = pieces.WHITE.PAWN
-        break
+        return pieces.WHITE.PAWN
       case 2:
-        ret = pieces.WHITE.KNIGHT
-        break
+        return pieces.WHITE.KNIGHT
       case 3:
-        ret = pieces.WHITE.BISHOP
-        break
+        return pieces.WHITE.BISHOP
       case 4:
-        ret = pieces.WHITE.ROOK
-        break
+        return pieces.WHITE.ROOK
       case 5:
-        ret = pieces.WHITE.QUEEN
-        break
+        return pieces.WHITE.QUEEN
       case 6:
-        ret = pieces.WHITE.KING
-        break
-      case 7:
-        ret = pieces.WHITE.WALL
-        break
+        return pieces.WHITE.KING
       case 9:
-        ret = pieces.BLACK.PAWN
-        break
+        return pieces.BLACK.PAWN
       case 10:
-        ret = pieces.BLACK.KNIGHT
-        break
+        return pieces.BLACK.KNIGHT
       case 11:
-        ret = pieces.BLACK.BISHOP
-        break
+        return pieces.BLACK.BISHOP
       case 12:
-        ret = pieces.BLACK.ROOK
-        break
+        return pieces.BLACK.ROOK
       case 13:
-        ret = pieces.BLACK.QUEEN
-        break
+        return pieces.BLACK.QUEEN
       case 14:
-        ret = pieces.BLACK.KING
-        break
-      case 15:
-        ret = pieces.BLACK.WALL
-        break
+        return pieces.BLACK.KING
       default:
         assert(false)
     }
-    return ret
+  }
+
+  getPinnedAxis (pos: util.Pos): 0 | 1 | 2 | 3 {
+    return ((this.raw[pos.toRaw()] >>> 4) & 0x3) as 0 | 1 | 2 | 3
+  }
+
+  isPinned (pos: util.Pos): boolean {
+    return (this.raw[pos.toRaw()] & 0x40) === 0x40
+  }
+
+  isAttacked (pos: util.Pos): boolean {
+    return (this.raw[pos.toRaw()] & 0x80) === 0x80
   }
 
   set (pos: util.Pos, piece: pieces.Square): Board {
+    let rawValue = this.raw[pos.toRaw()]
+    rawValue &= ~0xF
+    rawValue |= piece.id
     if (this.mutable) {
-      this.raw[pos.toRaw()] &= ~0xF
-      this.raw[pos.toRaw()] |= piece.id
+      this.raw[pos.toRaw()] = rawValue
       return this
     } else {
-      const newRaw = new Uint16Array(this.raw)
-      newRaw[pos.toRaw()] &= ~0xF
-      newRaw[pos.toRaw()] |= piece.id
+      const newRaw = new Uint8Array(this.raw)
+      newRaw[pos.toRaw()] = rawValue
+      return new Board(newRaw, false)
+    }
+  }
+
+  clearFlags (pos: util.Pos) {
+    let rawValue = this.raw[pos.toRaw()]
+    rawValue &= 0xF
+    if (this.mutable) {
+      this.raw[pos.toRaw()] = rawValue
+      return this
+    } else {
+      const newRaw = new Uint8Array(this.raw)
+      newRaw[pos.toRaw()] = rawValue
+      return new Board(newRaw, false)
+    }
+  }
+
+  setPinnedAxis (pos: util.Pos, axis: 0 | 1 | 2 | 3) {
+    let rawValue = this.raw[pos.toRaw()]
+    rawValue &= ~0x30
+    rawValue |= axis << 4
+    if (this.mutable) {
+      this.raw[pos.toRaw()] = rawValue
+      return this
+    } else {
+      const newRaw = new Uint8Array(this.raw)
+      newRaw[pos.toRaw()] = rawValue
+      return new Board(newRaw, false)
+    }
+  }
+
+  setPinned (pos: util.Pos, pinned: boolean) {
+    let rawValue = this.raw[pos.toRaw()]
+    rawValue &= ~0x40
+    rawValue |= Number(pinned) << 6
+    if (this.mutable) {
+      this.raw[pos.toRaw()] = rawValue
+      return this
+    } else {
+      const newRaw = new Uint8Array(this.raw)
+      newRaw[pos.toRaw()] = rawValue
+      return new Board(newRaw, false)
+    }
+  }
+
+  setAttacked (pos: util.Pos, attacked: boolean) {
+    let rawValue = this.raw[pos.toRaw()]
+    rawValue &= ~0x80
+    rawValue |= Number(attacked) << 7
+    if (this.mutable) {
+      this.raw[pos.toRaw()] = rawValue
+      return this
+    } else {
+      const newRaw = new Uint8Array(this.raw)
+      newRaw[pos.toRaw()] = rawValue
       return new Board(newRaw, false)
     }
   }
@@ -125,10 +185,14 @@ class Board {
     return acc
   }
 
+  asMutable () {
+    return new Board(new Uint8Array(this.raw), true)
+  }
+
   withMutations (fn: (board: Board) => void) {
-    const raw = new Uint16Array(this.raw)
+    const raw = new Uint8Array(this.raw)
     fn(new Board(raw, true))
-    return new Board(new Uint16Array(raw), false)
+    return new Board(new Uint8Array(raw), false)
   }
 }
 
@@ -255,8 +319,11 @@ class State {
 
   modify (fn: (state: State) => void) {
     const newState = new State(this)
+    newState.board = newState.board.asMutable()
     fn(newState)
 
+    newState.white.checks = 0
+    newState.black.checks = 0
     if (newState.board.get(new util.Pos(4, 0)) !== pieces.WHITE.KING) {
       newState.white.kingSideCastle = false
       newState.white.queenSideCastle = false
@@ -303,10 +370,57 @@ class State {
       newState.white.enPassantPos = null
       newState.black.enPassantPos = null
     }
+    let kingPos
+    for (let file = 0; file < 8; file++) {
+      for (let rank = 0; rank < 8; rank++) {
+        const pos = new util.Pos(file, rank)
+        newState.board.clearFlags(pos)
+        if (newState.board.get(pos) === newState.currTurn.KING) {
+          kingPos = pos
+        }
+      }
+    }
 
-    Object.freeze(newState.white)
-    Object.freeze(newState.black)
-    return Object.freeze(newState)
+    for (let file = 0; file < 8; file++) {
+      for (let rank = 0; rank < 8; rank++) {
+        const pos = new util.Pos(file, rank)
+        const piece = newState.board.get(pos)
+        if (piece.isOccupied() && piece.color !== newState.currTurn) {
+          if (piece === newState.currTurn.OTHER_COLOR.PAWN) {
+            const leftDiag = pos.add(-1, -newState.currTurn.PAWN_RANK_DIR)
+            if (leftDiag) {
+              newState.board.isAttacked(leftDiag)
+            }
+            const rightDiag = pos.add(1, -newState.currTurn.PAWN_RANK_DIR)
+            if (rightDiag) {
+              newState.board.isAttacked(rightDiag)
+            }
+          } else {
+            // Temp remove king so the king is not in the way of figuring out attacking squares
+            if (kingPos) {
+              newState.board.set(kingPos, pieces.EMPTY)
+            }
+            const moveList = piece.moves(newState, pos)
+            for (const move of moveList) {
+              if (move.isNormal()) {
+                newState.board.setAttacked(move.toPos, true)
+                if (kingPos && move.toPos.compare(kingPos) === 0) {
+                  newState.getColor(newState.currTurn).checks++
+                  newState.board.setPinned(pos, true)
+                }
+              }
+            }
+            if (kingPos) {
+              newState.board.set(kingPos, newState.currTurn.KING)
+            }
+            piece.pin(newState, pos)
+          }
+        }
+      }
+    }
+
+    newState.board = newState.board.withMutations(() => {})
+    return newState
   }
 
   getColor (color: pieces.Color) {
@@ -368,14 +482,7 @@ class State {
   }
 
   isCheck () {
-    const tmpState = this.flipTurn()
-    const moveList = tmpState.moves()
-    return moveList.some(move => {
-      if (!move.isNormal()) {
-        return false
-      }
-      return this.board.get(move.toPos) === this.currTurn.KING
-    })
+    return this.getColor(this.currTurn).checks !== 0
   }
 
   isCheckmate () {
@@ -585,7 +692,7 @@ let STARTING_BOARD: Board | null = null
 
 function getStartingBoard (): Board {
   if (!STARTING_BOARD) {
-    const board = new Uint16Array(64)
+    const board = new Uint8Array(64)
     for (let i = 0; i < 64; i++) {
       board[i] = pieces.EMPTY.id
     }
@@ -614,7 +721,7 @@ function getStartState (): State {
 const FEN_REGEX = /^((?:[kqnbrpKQNBRP1-8]+\/){7}[kqnbrpKQNBRP1-8]+)\s+([bw])\s+(KQ?k?q?|Qk?q?|kq?|q|-)\s+((?:[a-h][36])|-)\s+(\d+)\s+(\d+)$/
 
 function stateFromFen (fen: string) {
-  const board = new Uint16Array(64)
+  const board = new Uint8Array(64)
   for (let i = 0; i < 64; i++) {
     board[i] = pieces.EMPTY.id
   }

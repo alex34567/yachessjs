@@ -18,7 +18,7 @@ class Pos {
     if (!Number.isInteger(rank) || !Number.isInteger(file) || rank < 0 || rank > 7 || file < 0 || file > 7) {
       throw new Error('Invalid board pos')
     }
-    Object.freeze(this)
+    // Object.freeze(this)
   }
 
   // Returns null on out of bounds

@@ -47,13 +47,7 @@ abstract class Move {
     state.threeFoldDetect = state.threeFoldDetect.set(lastFen, stateCount)
   }
 
-  invalid (): string | false {
-    const afterState = this.do()
-    if (afterState.flipTurn().isCheck()) {
-      return 'Check'
-    }
-    return false
-  }
+  abstract invalid (): string | false
 
   abstract toNotation(): moveNotation.MoveNotation
 }
@@ -109,6 +103,46 @@ class NormalMove extends Move {
       notation.checkSymbol = '+'
     }
     return notation
+  }
+
+  invalid (): string | false {
+    if (this.piece === this.state.currTurn.KING) {
+      if (this.state.board.isAttacked(this.toPos)) {
+        return 'Check'
+      }
+      return false
+    } else {
+      if (this.state.getColor(this.state.currTurn).checks > 1) {
+        return 'Check'
+      }
+      if (this.state.board.isPinned(this.fromPos)) {
+        const deltaFile = this.fromPos.file - this.toPos.file
+        const deltaRank = this.fromPos.rank - this.toPos.rank
+        const knightMove = deltaFile !== 0 && deltaRank !== 0 && Math.abs(deltaFile) !== Math.abs(deltaRank)
+        if (knightMove) {
+          return 'Check'
+        }
+        const pinnedAxis = this.state.board.getPinnedAxis(this.fromPos)
+        if (deltaFile === 0 && pinnedAxis !== 0) {
+          return 'Check'
+        }
+        if (deltaRank === 0 && pinnedAxis !== 1) {
+          return 'Check'
+        }
+        if (deltaFile !== 0 && deltaRank !== 0) {
+          if (Math.sign(deltaRank) !== Math.sign(deltaFile) && pinnedAxis !== 2) {
+            return 'Check'
+          }
+          if (Math.sign(deltaRank) === Math.sign(deltaFile) && pinnedAxis !== 3) {
+            return 'Check'
+          }
+        }
+      }
+      if (this.state.getColor(this.state.currTurn).checks === 1 && !this.state.board.isPinned(this.toPos)) {
+        return 'Check'
+      }
+      return false
+    }
   }
 
   protected doChain (state: State) {
@@ -203,9 +237,8 @@ class Castle extends Move {
   }
 
   invalid () {
-    // Can't castle into check
-    if (super.invalid()) {
-      return "Can't castle into check"
+    if (this.state.getColor(this.state.currTurn).checks > 0) {
+      return "Can't castle out of check"
     }
 
     const myColor = this.state.getColor(this.state.currTurn)
@@ -232,37 +265,22 @@ class Castle extends Move {
       }
     }
 
-    // Can't castle out of check
-    const badPos = [new util.Pos(4, myRank)]
+    const badPos: util.Pos[] = []
     if (this.isKingSide) {
       // Can't castle though check
       badPos.push(new util.Pos(5, myRank))
+      // Can't castle into check
+      badPos.push(new util.Pos(6, myRank))
     } else {
+      // Can't castle into check
+      badPos.push(new util.Pos(2, myRank))
+      // Can't castle though check
       badPos.push(new util.Pos(3, myRank))
     }
 
-    const attacked = this.state.flipTurn().modify(tmpState => {
-      tmpState.board = tmpState.board.withMutations(board => {
-        for (const pos of badPos) {
-          // Pawns need a piece to be present to capture
-          // Create fake piece to allow this
-          board.set(pos, this.state.currTurn.WALL)
-        }
-      })
-    }).moves().some(move => {
-      if (!move.isNormal()) {
-        return false
-      }
-
-      for (const pos of badPos) {
-        if (move.toPos.compare(pos) === 0) {
-          return true
-        }
-      }
-      return false
-    })
+    const attacked = badPos.some(pos => this.state.board.isAttacked(pos))
     if (attacked) {
-      return "Can't castle out of or through check"
+      return "Can't castle into or through check"
     }
     return false
   }

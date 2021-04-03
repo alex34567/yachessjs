@@ -2,6 +2,7 @@ import * as moves from './moves'
 import * as state from './state'
 import * as util from './util'
 import * as immutable from 'immutable'
+import { State } from './state'
 
 class ConstructorKey {}
 
@@ -54,6 +55,52 @@ function moveLine (state: state.State, piece: Piece, fromPos: util.Pos, line: [n
   return moveList
 }
 
+function applyCheckPinFlag (state: state.State, fromPos: util.Pos, line: [number, number]) {
+  let toPos = fromPos.add(line[0], line[1])
+  while (toPos && state.board.get(toPos) !== state.currTurn.KING) {
+    state.board.setPinned(toPos, true)
+    toPos = toPos.add(line[0], line[1])
+  }
+}
+
+function checkForKing (state: state.State, piece: Piece, fromPos: util.Pos, line: [number, number]) {
+  let toPos = fromPos.add(line[0], line[1])
+  while (toPos && state.board.get(toPos).canMoveOnto(piece)) {
+    if (state.board.get(toPos) === state.currTurn.KING) {
+      return true
+    }
+    if (state.board.get(toPos).canBeCaptured(piece)) {
+      break
+    }
+    toPos = toPos.add(line[0], line[1])
+  }
+  return false
+}
+
+function pinLine (state: state.State, piece: Piece, fromPos: util.Pos, line: [number, number]) {
+  let toPos = fromPos.add(line[0], line[1])
+  while (toPos && state.board.get(toPos).canMoveOnto(piece)) {
+    if (state.board.get(toPos).canBeCaptured(piece)) {
+      if (state.board.get(toPos) === state.currTurn.KING) {
+        applyCheckPinFlag(state, fromPos, line)
+      } else if (checkForKing(state, piece, toPos, line)) {
+        state.board.setPinned(toPos, true)
+        let pinnedAxis: 0 | 1 | 2 | 3 = 0
+        if ((line[0] === 1 && line[1] === 0) || (line[0] === -1 && line[1] === 0)) {
+          pinnedAxis = 1
+        } else if ((line[0] === -1 && line[1] === 1) || (line[0] === 1 && line[1] === -1)) {
+          pinnedAxis = 2
+        } else if ((line[0] === -1 && line[1] === -1) || (line[0] === 1 && line[1] === 1)) {
+          pinnedAxis = 3
+        }
+        state.board.setPinnedAxis(toPos, pinnedAxis)
+      }
+      break
+    }
+    toPos = toPos.add(line[0], line[1])
+  }
+}
+
 abstract class Piece extends Square {
   color: Readonly<Color>
   fenLetter: string
@@ -84,6 +131,9 @@ abstract class Piece extends Square {
   canBeCaptured (other: Piece) {
     return this.canMoveOnto(other)
   }
+
+  // This method will get a mutable state
+  pin (state: State, pos: util.Pos) {}
 
   abstract moves (state: state.State, myPos: util.Pos): moves.Move[]
   abstract getPGNLetter(): string
@@ -156,6 +206,11 @@ class Rook extends Piece {
   getPGNLetter () {
     return 'R'
   }
+
+  pin (state: State, pos: util.Pos) {
+    const line: [number, number][] = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    return line.forEach(line => pinLine(state, this, pos, line))
+  }
 }
 
 class Knight extends Piece {
@@ -187,6 +242,11 @@ class Bishop extends Piece {
   getPGNLetter () {
     return 'B'
   }
+
+  pin (state: State, pos: util.Pos) {
+    const line: [number, number][] = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
+    return line.forEach(line => pinLine(state, this, pos, line))
+  }
 }
 
 class Queen extends Piece {
@@ -196,6 +256,11 @@ class Queen extends Piece {
 
   getPGNLetter () {
     return 'Q'
+  }
+
+  pin (state: state.State, pos: util.Pos) {
+    Bishop.prototype.pin.call(this, state, pos)
+    Rook.prototype.pin.call(this, state, pos)
   }
 }
 
@@ -217,17 +282,6 @@ class King extends Piece {
   }
 }
 
-// Pseudo piece that allows itself to be captured to help with castling though check with a pawn
-class Wall extends Piece {
-  moves (_state: state.State, _pos: util.Pos) {
-    return []
-  }
-
-  getPGNLetter (): string {
-    throw new Error('Not a real piece')
-  }
-}
-
 export interface Color {
   PAWN: Readonly<Piece>,
   ROOK: Readonly<Piece>,
@@ -235,7 +289,6 @@ export interface Color {
   BISHOP: Readonly<Piece>,
   QUEEN: Readonly<Piece>,
   KING: Readonly<Piece>,
-  WALL: Readonly<Piece>,
   KING_RANK: number,
   PAWN_RANK: number,
   PAWN_RANK_DIR: number,
@@ -254,7 +307,6 @@ function genColor (kingRank: number, pawnRank: number, pawnRankDir: number, fenC
     ROOK: Object.freeze(new Rook(key, ret, fenConv('R'), 4 + idOffset)),
     QUEEN: Object.freeze(new Queen(key, ret, fenConv('Q'), 5 + idOffset)),
     KING: Object.freeze(new King(key, ret, fenConv('K'), 6 + idOffset)),
-    WALL: Object.freeze(new Wall(key, ret, fenConv(''), 7 + idOffset)),
     KING_RANK: kingRank,
     PAWN_RANK: pawnRank,
     PAWN_RANK_DIR: pawnRankDir
