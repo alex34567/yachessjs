@@ -48,10 +48,9 @@ class Player {
       3: Left-Down/Right-Up
     x is set when this square is being attacked by the opponent
     p has multiple meanings depending on what kind of piece it is applied to:
-        white piece: this piece is pinned (moving would put king in check)
-        black piece: this piece is delivering check to white
+        current player's piece: this piece is pinned (moving would put king in check)
+        next player's piece: this piece is delivering check to the other player
         empty square: putting a piece here blocks check (except for double check where only the king can move)
-    b is a set of bitflags of similar form to w but with black and white swapped
  */
 export class Board {
   private readonly raw: Uint8Array
