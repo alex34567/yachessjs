@@ -321,6 +321,7 @@ class State {
     const newState = new State(this)
     newState.board = newState.board.asMutable()
     fn(newState)
+    newState.board = newState.board.asMutable()
 
     newState.white.checks = 0
     newState.black.checks = 0
@@ -386,35 +387,22 @@ class State {
         const pos = new util.Pos(file, rank)
         const piece = newState.board.get(pos)
         if (piece.isOccupied() && piece.color !== newState.currTurn) {
-          if (piece === newState.currTurn.OTHER_COLOR.PAWN) {
-            const leftDiag = pos.add(-1, -newState.currTurn.PAWN_RANK_DIR)
-            if (leftDiag) {
-              newState.board.isAttacked(leftDiag)
-            }
-            const rightDiag = pos.add(1, -newState.currTurn.PAWN_RANK_DIR)
-            if (rightDiag) {
-              newState.board.isAttacked(rightDiag)
-            }
-          } else {
-            // Temp remove king so the king is not in the way of figuring out attacking squares
-            if (kingPos) {
-              newState.board.set(kingPos, pieces.EMPTY)
-            }
-            const moveList = piece.moves(newState, pos)
-            for (const move of moveList) {
-              if (move.isNormal()) {
-                newState.board.setAttacked(move.toPos, true)
-                if (kingPos && move.toPos.compare(kingPos) === 0) {
-                  newState.getColor(newState.currTurn).checks++
-                  newState.board.setPinned(pos, true)
-                }
-              }
-            }
-            if (kingPos) {
-              newState.board.set(kingPos, newState.currTurn.KING)
-            }
-            piece.pin(newState, pos)
+          // Temp remove king so the king is not in the way of figuring out attacking squares
+          if (kingPos) {
+            newState.board.set(kingPos, pieces.EMPTY)
           }
+          const protects = piece.protects(newState, pos)
+          for (const prot of protects) {
+            newState.board.setAttacked(prot, true)
+            if (kingPos && prot.compare(kingPos) === 0) {
+              newState.getColor(newState.currTurn).checks++
+              newState.board.setPinned(pos, true)
+            }
+          }
+          if (kingPos) {
+            newState.board.set(kingPos, newState.currTurn.KING)
+          }
+          piece.pin(newState, pos)
         }
       }
     }

@@ -55,6 +55,24 @@ function moveLine (state: state.State, piece: Piece, fromPos: util.Pos, line: [n
   return moveList
 }
 
+function protectLine (state: state.State, piece: Piece, fromPos: util.Pos, line: [number, number]) {
+  const protects = []
+  let toPos = fromPos.add(line[0], line[1])
+  while (toPos && state.board.get(toPos).canMoveOnto(piece)) {
+    protects.push(toPos)
+    // Once the piece hits another piece stop
+    if (state.board.get(toPos).canBeCaptured(piece)) {
+      break
+    }
+    toPos = toPos.add(line[0], line[1])
+  }
+
+  if (toPos) {
+    protects.push(toPos)
+  }
+  return protects
+}
+
 function applyCheckPinFlag (state: state.State, fromPos: util.Pos, line: [number, number]) {
   let toPos = fromPos.add(line[0], line[1])
   while (toPos && state.board.get(toPos) !== state.currTurn.KING) {
@@ -136,6 +154,7 @@ abstract class Piece extends Square {
   pin (state: State, pos: util.Pos) {}
 
   abstract moves (state: state.State, myPos: util.Pos): moves.Move[]
+  abstract protects (state: state.State, myPos: util.Pos): util.Pos[]
   abstract getPGNLetter(): string
 }
 
@@ -193,6 +212,19 @@ class Pawn extends Piece {
 
     return moveList
   }
+
+  protects (state: State, myPos: util.Pos): util.Pos[] {
+    const protects = []
+    const leftDiag = myPos.add(-1, this.color.PAWN_RANK_DIR)
+    if (leftDiag) {
+      protects.push(leftDiag)
+    }
+    const rightDiag = myPos.add(1, this.color.PAWN_RANK_DIR)
+    if (rightDiag) {
+      protects.push(rightDiag)
+    }
+    return protects
+  }
 }
 
 class Rook extends Piece {
@@ -211,6 +243,13 @@ class Rook extends Piece {
     const line: [number, number][] = [[0, 1], [0, -1], [1, 0], [-1, 0]]
     return line.forEach(line => pinLine(state, this, pos, line))
   }
+
+  protects (state: State, myPos: util.Pos): util.Pos[] {
+    const line: [number, number][] = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    return (line
+      .map(line => protectLine(state, this, myPos, line))
+      .reduce((acc, val) => acc.concat(val)))
+  }
 }
 
 class Knight extends Piece {
@@ -224,6 +263,18 @@ class Knight extends Piece {
       }
     }
     return moveList
+  }
+
+  protects (state: State, pos: util.Pos): util.Pos[] {
+    const knightPos = [[1, 2], [-1, 2], [1, -2], [-1, -2], [2, 1], [-2, 1], [2, -1], [-2, -1]]
+    const protects = []
+    for (const deltaPos of knightPos) {
+      const newPos = pos.add(deltaPos[0], deltaPos[1])
+      if (newPos) {
+        protects.push(newPos)
+      }
+    }
+    return protects
   }
 
   getPGNLetter () {
@@ -247,6 +298,13 @@ class Bishop extends Piece {
     const line: [number, number][] = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
     return line.forEach(line => pinLine(state, this, pos, line))
   }
+
+  protects (state: State, myPos: util.Pos): util.Pos[] {
+    const line: [number, number][] = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
+    return (line
+      .map(line => protectLine(state, this, myPos, line))
+      .reduce((acc, val) => acc.concat(val)))
+  }
 }
 
 class Queen extends Piece {
@@ -262,6 +320,10 @@ class Queen extends Piece {
     Bishop.prototype.pin.call(this, state, pos)
     Rook.prototype.pin.call(this, state, pos)
   }
+
+  protects (state: State, pos: util.Pos): util.Pos[] {
+    return Bishop.prototype.protects.call(this, state, pos).concat(Rook.prototype.protects.call(this, state, pos))
+  }
 }
 
 class King extends Piece {
@@ -275,6 +337,18 @@ class King extends Piece {
       }
     }
     return moveList
+  }
+
+  protects (state: State, pos: util.Pos): util.Pos[] {
+    const kingPos = [[1, 0], [1, 1], [-1, 0], [-1, -1], [1, -1], [-1, 1], [0, 1], [0, -1]]
+    const protects = []
+    for (const deltaPos of kingPos) {
+      const newPos = pos.add(deltaPos[0], deltaPos[1])
+      if (newPos) {
+        protects.push(newPos)
+      }
+    }
+    return protects
   }
 
   getPGNLetter () {
