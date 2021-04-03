@@ -173,34 +173,63 @@ class State {
   }
 
   toAbvFen () {
-    const enPassantPossible = this.moves().some(move => {
-      // Convert the en-passant into a non-en-passant to allow pin detection without an infinite loop
-      if (!move.isEnPassant()) {
-        return false
-      }
-      const tmpState = this.modify(x => {
-        x.white.enPassantPos = null
-        x.black.enPassantPos = null
-        // Hack the pawn back to its pos if the pawn only moved once
-        x.board = x.board.withMutations(board => {
-          board.set(move.toPos.addRank(-this.currTurn.PAWN_RANK_DIR)!, pieces.EMPTY)
-          board.set(move.toPos, this.currTurn.OTHER_COLOR.PAWN)
-        })
-      })
-      return tmpState.moves().some(x => x.isNormal() && x.toPos.compare(move.toPos) === 0 && !x.invalid())
-    })
     const lastFenLst = this.toFen().split(' ')
     lastFenLst.pop()
     lastFenLst.pop()
-    if (!enPassantPossible) {
-      lastFenLst.pop()
-    }
     return lastFenLst.join(' ')
   }
 
   modify (fn: (state: State) => void) {
     const newState = new State(this)
     fn(newState)
+
+    if (newState.board.get(new util.Pos(4, 0)) !== pieces.WHITE.KING) {
+      newState.white.kingSideCastle = false
+      newState.white.queenSideCastle = false
+    }
+    if (newState.board.get(new util.Pos(0, 0)) !== pieces.WHITE.ROOK) {
+      newState.white.queenSideCastle = false
+    }
+    if (newState.board.get(new util.Pos(7, 0)) !== pieces.WHITE.ROOK) {
+      newState.white.kingSideCastle = false
+    }
+
+    if (newState.board.get(new util.Pos(4, 7)) !== pieces.BLACK.KING) {
+      newState.black.kingSideCastle = false
+      newState.black.queenSideCastle = false
+    }
+    if (newState.board.get(new util.Pos(0, 7)) !== pieces.BLACK.ROOK) {
+      newState.black.queenSideCastle = false
+    }
+    if (newState.board.get(new util.Pos(7, 7)) !== pieces.BLACK.ROOK) {
+      newState.black.kingSideCastle = false
+    }
+
+    const enPassantPossible = newState.moves().some(move => {
+      // Convert the en-passant into a non-en-passant to allow pin detection without an infinite loop
+      if (!move.isEnPassant()) {
+        return false
+      }
+      const enPassantPiecePos = move.toPos.addRank(-this.currTurn.PAWN_RANK_DIR)!
+      if (newState.board.get(enPassantPiecePos) !== newState.currTurn.OTHER_COLOR.PAWN) {
+        return false
+      }
+      const tmpState = newState.modify(x => {
+        x.white.enPassantPos = null
+        x.black.enPassantPos = null
+        // Hack the pawn back to its pos if the pawn only moved once
+        x.board = x.board.withMutations(board => {
+          board.set(enPassantPiecePos, pieces.EMPTY)
+          board.set(move.toPos, this.currTurn.OTHER_COLOR.PAWN)
+        })
+      })
+      return tmpState.moves().some(x => x.isNormal() && x.piece === newState.currTurn.PAWN && x.toPos.compare(move.toPos) === 0 && !x.invalid())
+    })
+    if (!enPassantPossible) {
+      newState.white.enPassantPos = null
+      newState.black.enPassantPos = null
+    }
+
     Object.freeze(newState.white)
     Object.freeze(newState.black)
     return Object.freeze(newState)
@@ -550,29 +579,10 @@ function stateFromFen (fen: string) {
   const white = new Player(pieces.WHITE)
   white.kingSideCastle = parsedFen[3].includes('K')
   white.queenSideCastle = parsedFen[3].includes('Q')
-  if (board[new util.Pos(4, 0).toRaw()] !== pieces.WHITE.KING) {
-    white.kingSideCastle = false
-    white.queenSideCastle = false
-  }
-  if (board[new util.Pos(0, 0).toRaw()] !== pieces.WHITE.ROOK) {
-    white.kingSideCastle = false
-  }
-  if (board[new util.Pos(7, 0).toRaw()] !== pieces.WHITE.ROOK) {
-    white.kingSideCastle = false
-  }
   const black = new Player(pieces.BLACK)
   black.kingSideCastle = parsedFen[3].includes('k')
   black.queenSideCastle = parsedFen[3].includes('q')
-  if (board[new util.Pos(4, 7).toRaw()] !== pieces.BLACK.KING) {
-    black.kingSideCastle = false
-    black.queenSideCastle = false
-  }
-  if (board[new util.Pos(0, 7).toRaw()] !== pieces.BLACK.ROOK) {
-    black.kingSideCastle = false
-  }
-  if (board[new util.Pos(7, 7).toRaw()] !== pieces.BLACK.ROOK) {
-    black.kingSideCastle = false
-  }
+
   const enPassantPos = parsedFen[4]
   if (enPassantPos !== '-') {
     let enPassantPlayer = black

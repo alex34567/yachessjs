@@ -3,6 +3,7 @@ import * as util from './util'
 import * as moveNotation from './move_notation'
 import * as state from './state'
 import * as immmutable from 'immutable'
+import { State } from './state'
 
 abstract class Move {
   state: state.State
@@ -27,21 +28,23 @@ abstract class Move {
   }
 
   do () {
-    return this.state.flipTurn().modify(newState => {
-      if (newState.isHistory()) {
-        newState.moveHistory = newState.moveHistory.setSize(newState.moveIndex)
-        newState.moveIndex++
-      }
-      newState.halfMove++
-      newState.moveHistory = newState.moveHistory.push(this)
-      const lastFen = this.state.toAbvFen()
-      let stateCount = newState.threeFoldDetect.get(lastFen)
-      if (!stateCount) {
-        stateCount = 0
-      }
-      stateCount++
-      newState.threeFoldDetect = newState.threeFoldDetect.set(lastFen, stateCount)
-    })
+    return this.state.flipTurn().modify(newState => this.doChain(newState))
+  }
+
+  protected doChain (state: State) {
+    if (state.isHistory()) {
+      state.moveHistory = state.moveHistory.setSize(state.moveIndex)
+      state.moveIndex++
+    }
+    state.halfMove++
+    state.moveHistory = state.moveHistory.push(this)
+    const lastFen = this.state.toAbvFen()
+    let stateCount = state.threeFoldDetect.get(lastFen)
+    if (!stateCount) {
+      stateCount = 0
+    }
+    stateCount++
+    state.threeFoldDetect = state.threeFoldDetect.set(lastFen, stateCount)
   }
 
   invalid (): string | false {
@@ -108,46 +111,22 @@ class NormalMove extends Move {
     return notation
   }
 
-  do () {
-    return super.do().modify(newState => {
-      newState.board = newState.board.set(this.fromPos, pieces.EMPTY)
-      newState.board = newState.board.set(this.toPos, this.piece)
-      const myColor = newState.getColor(this.piece.color)
-      if (this.fromPos.rank === this.piece.color.KING_RANK) {
-        if (this.fromPos.file === 0) {
-          myColor.queenSideCastle = false
-        }
-        if (this.fromPos.file === 7) {
-          myColor.kingSideCastle = false
-        }
-        if (this.fromPos.file === 4) {
-          myColor.queenSideCastle = false
-          myColor.kingSideCastle = false
-        }
-      }
-      const otherColor = newState.getColor(this.piece.color.OTHER_COLOR)
-      if (this.toPos.rank === this.piece.color.OTHER_COLOR.KING_RANK) {
-        if (this.toPos.file === 0) {
-          otherColor.queenSideCastle = false
-        }
-        if (this.toPos.file === 7) {
-          otherColor.kingSideCastle = false
-        }
-      }
-      if (this.state.board.get(this.toPos).isOccupied() || this.piece === this.state.currTurn.PAWN) {
-        newState.halfMove = 0
-        newState.threeFoldDetect = immmutable.Map()
-      }
-    })
+  protected doChain (state: State) {
+    super.doChain(state)
+    state.board = state.board.set(this.fromPos, pieces.EMPTY)
+    state.board = state.board.set(this.toPos, this.piece)
+    if (this.state.board.get(this.toPos).isOccupied() || this.piece === this.state.currTurn.PAWN) {
+      state.halfMove = 0
+      state.threeFoldDetect = immmutable.Map()
+    }
   }
 }
 
 class FirstPawn extends NormalMove {
-  do () {
-    return super.do().modify(newState => {
-      const myColor = newState.getColor(this.piece.color)
-      myColor.enPassantPos = this.fromPos.addRank(this.piece.color.PAWN_RANK_DIR)
-    })
+  protected doChain (state: State) {
+    super.doChain(state)
+    const myColor = state.getColor(this.piece.color)
+    myColor.enPassantPos = this.fromPos.addRank(this.piece.color.PAWN_RANK_DIR)
   }
 }
 
@@ -160,13 +139,12 @@ class EnPassant extends NormalMove {
     return true
   }
 
-  do () {
-    return super.do().modify(newState => {
-      const passedPawn = this.toPos.addRank(-this.piece.color.PAWN_RANK_DIR)
-      console.assert(passedPawn)
+  protected doChain (state: State) {
+    super.doChain(state)
+    const passedPawn = this.toPos.addRank(-this.piece.color.PAWN_RANK_DIR)
+    console.assert(passedPawn)
 
-      newState.board = newState.board.set(passedPawn!, pieces.EMPTY)
-    })
+    state.board = state.board.set(passedPawn!, pieces.EMPTY)
   }
 }
 
@@ -182,10 +160,9 @@ class Promotion extends NormalMove {
     return true
   }
 
-  do () {
-    return super.do().modify(newState => {
-      newState.board = newState.board.set(this.toPos, this.promoteChoice)
-    })
+  doChain (state: State) {
+    super.doChain(state)
+    state.board = state.board.set(this.toPos, this.promoteChoice)
   }
 }
 
@@ -205,28 +182,23 @@ class Castle extends Move {
     return true
   }
 
-  do () {
-    return super.do().modify(newState => {
-      const myColor = newState.getColor(this.state.currTurn)
-      const myRook = this.state.currTurn.ROOK
-      const myKing = this.state.currTurn.KING
-      const myRank = this.state.currTurn.KING_RANK
+  doChain (state: State) {
+    super.doChain(state)
+    const myRook = this.state.currTurn.ROOK
+    const myKing = this.state.currTurn.KING
+    const myRank = this.state.currTurn.KING_RANK
 
-      newState.board = newState.board.withMutations(board => {
-        board.set(new util.Pos(4, myRank), pieces.EMPTY)
-        if (this.isKingSide) {
-          board.set(new util.Pos(5, myRank), myRook)
-          board.set(new util.Pos(6, myRank), myKing)
-          board.set(new util.Pos(7, myRank), pieces.EMPTY)
-        } else {
-          board.set(new util.Pos(3, myRank), myRook)
-          board.set(new util.Pos(2, myRank), myKing)
-          board.set(new util.Pos(0, myRank), pieces.EMPTY)
-        }
-      })
-
-      myColor.kingSideCastle = false
-      myColor.queenSideCastle = false
+    state.board = state.board.withMutations(board => {
+      board.set(new util.Pos(4, myRank), pieces.EMPTY)
+      if (this.isKingSide) {
+        board.set(new util.Pos(5, myRank), myRook)
+        board.set(new util.Pos(6, myRank), myKing)
+        board.set(new util.Pos(7, myRank), pieces.EMPTY)
+      } else {
+        board.set(new util.Pos(3, myRank), myRook)
+        board.set(new util.Pos(2, myRank), myKing)
+        board.set(new util.Pos(0, myRank), pieces.EMPTY)
+      }
     })
   }
 

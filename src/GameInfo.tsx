@@ -7,6 +7,7 @@ import PlayerSelector from './PlayerSelector'
 interface GameInfoProps {
   state: State
   restart: (white: Player, black: Player) => void
+  switchMode: () => void
 }
 
 export default function GameInfo (props: GameInfoProps) {
@@ -44,6 +45,8 @@ export default function GameInfo (props: GameInfoProps) {
       <br/>
       <label>Black Player </label>
       <PlayerSelector onPlayerChange={onBlackChange} value={blackFactory}/>
+      <br/>
+      <button onClick={props.switchMode}>Setup</button>
     </div>
   )
 }

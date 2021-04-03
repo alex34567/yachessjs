@@ -1,23 +1,22 @@
 import * as React from 'react'
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Human, Player } from './player'
-import { getStartState, State } from './logic/state'
+import { State } from './logic/state'
 import { BLACK } from './logic/pieces'
 import ChessBoard from './ChessBoard'
 import GameInfo from './GameInfo'
 import { Pos } from './logic/util'
+import { ModeProps } from './App'
 
 interface Players {
   white: Player
   black: Player
 }
 
-export default function PlayMode (props: {}) {
+export default function PlayMode (props: ModeProps) {
   const [players, setPlayers] = useState<Players>({ white: new Human(), black: new Human() })
-  const beginState = getStartState()
-  const [state, setState] = useState(beginState)
+  const [state, setState] = useState(props.defaultState)
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
-  const forceUpdate = useReducer(x => x + 1, 0)[1]
 
   useEffect(() => {
     // If someone pushes the reset button at the exact time a move is ready,
@@ -27,6 +26,11 @@ export default function PlayMode (props: {}) {
     let stateValid = true
     let player1 = players.white
     let player2 = players.black
+    if (props.defaultState.currTurn === BLACK) {
+      const tmp = player1
+      player1 = player2
+      player2 = tmp
+    }
     const makeMoveThen = (state: State): Promise<unknown> | undefined => {
       if (!stateValid) {
         return
@@ -42,9 +46,8 @@ export default function PlayMode (props: {}) {
       setState(state)
       return ret
     }
-    player1.makeMove(beginState).then(makeMoveThen)
-    setState(beginState)
-    forceUpdate()
+    player1.makeMove(props.defaultState).then(makeMoveThen)
+    setState(props.defaultState)
     return () => {
       stateValid = false
       players.white.close()
@@ -56,6 +59,11 @@ export default function PlayMode (props: {}) {
     setPlayers({ white, black })
   }
 
+  const switchMode = () => {
+    props.setDefaultState(state)
+    props.switchMode(true)
+  }
+
   let currPlayer = players.white
   if (state.currTurn === BLACK) {
     currPlayer = players.black
@@ -63,7 +71,7 @@ export default function PlayMode (props: {}) {
   return (
     <div className="App">
       <ChessBoard changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state}/>
-      <GameInfo state={state} restart={restart}/>
+      <GameInfo state={state} restart={restart} switchMode={switchMode}/>
     </div>
   )
 }
