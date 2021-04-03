@@ -20,6 +20,7 @@ abstract class Square {
     }
   }
 
+  id = 0
   abstract isOccupied (): this is Piece;
   abstract canMoveOnto (piece: Piece): boolean;
   abstract canBeCaptured (piece: Piece): boolean;
@@ -57,7 +58,7 @@ abstract class Piece extends Square {
   color: Readonly<Color>
   fenLetter: string
 
-  constructor (key: ConstructorKey, color: Readonly<Color>, fenLetter: string) {
+  constructor (key: ConstructorKey, color: Readonly<Color>, fenLetter: string, id: number) {
     super(key)
 
     if (typeof this.moves !== 'function') {
@@ -69,6 +70,7 @@ abstract class Piece extends Square {
 
     this.color = color
     this.fenLetter = fenLetter
+    this.id = id
   }
 
   isOccupied () {
@@ -242,17 +244,17 @@ export interface Color {
   OTHER_COLOR: Readonly<Color>,
 }
 
-function genColor (kingRank: number, pawnRank: number, pawnRankDir: number, fenConv: (l: string) => string) {
+function genColor (kingRank: number, pawnRank: number, pawnRankDir: number, fenConv: (l: string) => string, idOffset: number) {
   const ret = {} as Color
   const key = new ConstructorKey()
   Object.assign(ret, {
-    PAWN: Object.freeze(new Pawn(key, ret, fenConv('P'))),
-    ROOK: Object.freeze(new Rook(key, ret, fenConv('R'))),
-    KNIGHT: Object.freeze(new Knight(key, ret, fenConv('N'))),
-    BISHOP: Object.freeze(new Bishop(key, ret, fenConv('B'))),
-    QUEEN: Object.freeze(new Queen(key, ret, fenConv('Q'))),
-    KING: Object.freeze(new King(key, ret, fenConv('K'))),
-    WALL: Object.freeze(new Wall(key, ret, fenConv(''))),
+    PAWN: Object.freeze(new Pawn(key, ret, fenConv('P'), 1 + idOffset)),
+    KNIGHT: Object.freeze(new Knight(key, ret, fenConv('N'), 2 + idOffset)),
+    BISHOP: Object.freeze(new Bishop(key, ret, fenConv('B'), 3 + idOffset)),
+    ROOK: Object.freeze(new Rook(key, ret, fenConv('R'), 4 + idOffset)),
+    QUEEN: Object.freeze(new Queen(key, ret, fenConv('Q'), 5 + idOffset)),
+    KING: Object.freeze(new King(key, ret, fenConv('K'), 6 + idOffset)),
+    WALL: Object.freeze(new Wall(key, ret, fenConv(''), 7 + idOffset)),
     KING_RANK: kingRank,
     PAWN_RANK: pawnRank,
     PAWN_RANK_DIR: pawnRankDir
@@ -264,8 +266,8 @@ function genColor (kingRank: number, pawnRank: number, pawnRankDir: number, fenC
   return ret
 }
 
-const WRITABLE_WHITE = genColor(0, 1, 1, x => x)
-const WRITABLE_BLACK = genColor(7, 6, -1, x => x.toLowerCase())
+const WRITABLE_WHITE = genColor(0, 1, 1, x => x, 0)
+const WRITABLE_BLACK = genColor(7, 6, -1, x => x.toLowerCase(), 8)
 WRITABLE_WHITE.OTHER_COLOR = WRITABLE_BLACK
 Object.freeze(WRITABLE_WHITE)
 WRITABLE_BLACK.OTHER_COLOR = WRITABLE_WHITE

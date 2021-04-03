@@ -26,35 +26,109 @@ class Player {
   }
 }
 
+/* Board format uses an array of 64 16 bit ints as so:
+  The mapping from (file, rank) to index is done according to rank * 8 + file.
+  Every square is an int in the form of ____________ciii where:
+    i is an int from 0 - 7 where:
+      0: empty
+      1: pawn
+      2: knight
+      3: bishop
+      4: rook
+      5: queen
+      6: king
+      7: wall
+    c is 1 for black 0 for white.
+ */
 class Board {
-  raw: immutable.List<pieces.Square>
+  private readonly raw: Uint16Array
+  private readonly mutable: boolean
 
-  constructor (raw: immutable.List<pieces.Square>) {
+  constructor (raw: Uint16Array, mutable: boolean) {
     this.raw = raw
+    this.mutable = mutable
   }
 
   get (pos: util.Pos): pieces.Square {
-    const ret = this.raw.get(pos.toRaw())
-    assert(ret)
+    const rawPiece = this.raw[pos.toRaw()] & 0xF
+    let ret
+    switch (rawPiece) {
+      case 0:
+        ret = pieces.EMPTY
+        break
+      case 1:
+        ret = pieces.WHITE.PAWN
+        break
+      case 2:
+        ret = pieces.WHITE.KNIGHT
+        break
+      case 3:
+        ret = pieces.WHITE.BISHOP
+        break
+      case 4:
+        ret = pieces.WHITE.ROOK
+        break
+      case 5:
+        ret = pieces.WHITE.QUEEN
+        break
+      case 6:
+        ret = pieces.WHITE.KING
+        break
+      case 7:
+        ret = pieces.WHITE.WALL
+        break
+      case 9:
+        ret = pieces.BLACK.PAWN
+        break
+      case 10:
+        ret = pieces.BLACK.KNIGHT
+        break
+      case 11:
+        ret = pieces.BLACK.BISHOP
+        break
+      case 12:
+        ret = pieces.BLACK.ROOK
+        break
+      case 13:
+        ret = pieces.BLACK.QUEEN
+        break
+      case 14:
+        ret = pieces.BLACK.KING
+        break
+      case 15:
+        ret = pieces.BLACK.WALL
+        break
+      default:
+        assert(false)
+    }
     return ret
   }
 
   set (pos: util.Pos, piece: pieces.Square): Board {
-    return new Board(this.raw.set(pos.toRaw(), piece))
+    if (this.mutable) {
+      this.raw[pos.toRaw()] &= ~0xF
+      this.raw[pos.toRaw()] |= piece.id
+      return this
+    } else {
+      const newRaw = new Uint16Array(this.raw)
+      newRaw[pos.toRaw()] &= ~0xF
+      newRaw[pos.toRaw()] |= piece.id
+      return new Board(newRaw, false)
+    }
   }
 
   reduce<ACC> (fun: (acc: ACC, piece: pieces.Square, pos: util.Pos, board: this) => ACC, acc: ACC) {
-    for (let i = 0; i < this.raw.size; i++) {
-      acc = fun(acc, this.raw.get(i)!, util.Pos.fromRaw(i), this)
+    for (let i = 0; i < this.raw.length; i++) {
+      const pos = util.Pos.fromRaw(i)
+      acc = fun(acc, this.get(pos), pos, this)
     }
     return acc
   }
 
   withMutations (fn: (board: Board) => void) {
-    const raw = this.raw.withMutations(raw => {
-      fn(new Board(raw))
-    })
-    return new Board(raw)
+    const raw = new Uint16Array(this.raw)
+    fn(new Board(raw, true))
+    return new Board(new Uint16Array(raw), false)
   }
 }
 
@@ -511,21 +585,21 @@ let STARTING_BOARD: Board | null = null
 
 function getStartingBoard (): Board {
   if (!STARTING_BOARD) {
-    const board = new Array(64)
+    const board = new Uint16Array(64)
     for (let i = 0; i < 64; i++) {
-      board[i] = pieces.EMPTY
+      board[i] = pieces.EMPTY.id
     }
-    board.splice(0, 8, pieces.WHITE.ROOK, pieces.WHITE.KNIGHT, pieces.WHITE.BISHOP, pieces.WHITE.QUEEN,
-      pieces.WHITE.KING, pieces.WHITE.BISHOP, pieces.WHITE.KNIGHT, pieces.WHITE.ROOK)
+    board.set([pieces.WHITE.ROOK.id, pieces.WHITE.KNIGHT.id, pieces.WHITE.BISHOP.id, pieces.WHITE.QUEEN.id,
+      pieces.WHITE.KING.id, pieces.WHITE.BISHOP.id, pieces.WHITE.KNIGHT.id, pieces.WHITE.ROOK.id], 0)
     for (let i = 8; i < 16; i++) {
-      board[i] = pieces.WHITE.PAWN
+      board[i] = pieces.WHITE.PAWN.id
     }
     for (let i = 48; i < 56; i++) {
-      board[i] = pieces.BLACK.PAWN
+      board[i] = pieces.BLACK.PAWN.id
     }
-    board.splice(56, 8, pieces.BLACK.ROOK, pieces.BLACK.KNIGHT, pieces.BLACK.BISHOP, pieces.BLACK.QUEEN,
-      pieces.BLACK.KING, pieces.BLACK.BISHOP, pieces.BLACK.KNIGHT, pieces.BLACK.ROOK)
-    STARTING_BOARD = new Board(immutable.List(board))
+    board.set([pieces.BLACK.ROOK.id, pieces.BLACK.KNIGHT.id, pieces.BLACK.BISHOP.id, pieces.BLACK.QUEEN.id,
+      pieces.BLACK.KING.id, pieces.BLACK.BISHOP.id, pieces.BLACK.KNIGHT.id, pieces.BLACK.ROOK.id], 56)
+    STARTING_BOARD = new Board(board, false)
   }
   return STARTING_BOARD
 }
@@ -540,9 +614,9 @@ function getStartState (): State {
 const FEN_REGEX = /^((?:[kqnbrpKQNBRP1-8]+\/){7}[kqnbrpKQNBRP1-8]+)\s+([bw])\s+(KQ?k?q?|Qk?q?|kq?|q|-)\s+((?:[a-h][36])|-)\s+(\d+)\s+(\d+)$/
 
 function stateFromFen (fen: string) {
-  const board = new Array(64)
+  const board = new Uint16Array(64)
   for (let i = 0; i < 64; i++) {
-    board[i] = pieces.EMPTY
+    board[i] = pieces.EMPTY.id
   }
   let rank = 7
   const parsedFen = FEN_REGEX.exec(fen.trim())
@@ -560,7 +634,7 @@ function stateFromFen (fen: string) {
       if (asNum) {
         file += asNum
       } else {
-        board[new util.Pos(file, rank).toRaw()] = pieces.FROM_FEN.get(char)
+        board[new util.Pos(file, rank).toRaw()] = pieces.FROM_FEN.get(char)!.id
         file++
       }
     }
@@ -602,7 +676,7 @@ function stateFromFen (fen: string) {
     moveCount++
   }
   return getStartState().modify(x => {
-    x.board = new Board(immutable.List(board))
+    x.board = new Board(board, false)
     x.white = white
     x.black = black
     x.currTurn = currPlayer
