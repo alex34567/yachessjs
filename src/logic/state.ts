@@ -43,7 +43,7 @@ class Player {
       1: horizontal
       2: Left-Up/Right-Down
       3: Left-Down/Right-Up
-    x is set when the king can not move to this square because a piece is protected
+    x is set when the king can not move to this square because a piece is protecting it
     p has multiple meanings depending on what kind of piece it is applied to:
         current player's piece: this piece is pinned (moving would put king in check)
         next player's piece: this piece is delivering check to the other player
@@ -108,25 +108,22 @@ export class Board {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= ~0xF
     rawValue |= piece.id
-    if (this.mutable) {
-      this.raw[pos.toRaw()] = rawValue
-      return this
-    } else {
-      const newRaw = new Uint8Array(this.raw)
-      newRaw[pos.toRaw()] = rawValue
-      return new Board(newRaw, false)
-    }
+    return this.rawSet(pos, rawValue)
   }
 
   clearFlags (pos: util.Pos) {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= 0xF
+    return this.rawSet(pos, rawValue)
+  }
+
+  private rawSet (pos: util.Pos, raw: number) {
     if (this.mutable) {
-      this.raw[pos.toRaw()] = rawValue
+      this.raw[pos.toRaw()] = raw
       return this
     } else {
       const newRaw = new Uint8Array(this.raw)
-      newRaw[pos.toRaw()] = rawValue
+      newRaw[pos.toRaw()] = raw
       return new Board(newRaw, false)
     }
   }
@@ -135,42 +132,21 @@ export class Board {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= ~0x30
     rawValue |= axis << 4
-    if (this.mutable) {
-      this.raw[pos.toRaw()] = rawValue
-      return this
-    } else {
-      const newRaw = new Uint8Array(this.raw)
-      newRaw[pos.toRaw()] = rawValue
-      return new Board(newRaw, false)
-    }
+    return this.rawSet(pos, rawValue)
   }
 
   setPinned (pos: util.Pos, pinned: boolean) {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= ~0x40
     rawValue |= Number(pinned) << 6
-    if (this.mutable) {
-      this.raw[pos.toRaw()] = rawValue
-      return this
-    } else {
-      const newRaw = new Uint8Array(this.raw)
-      newRaw[pos.toRaw()] = rawValue
-      return new Board(newRaw, false)
-    }
+    return this.rawSet(pos, rawValue)
   }
 
   setProtected (pos: util.Pos, attacked: boolean) {
     let rawValue = this.raw[pos.toRaw()]
     rawValue &= ~0x80
     rawValue |= Number(attacked) << 7
-    if (this.mutable) {
-      this.raw[pos.toRaw()] = rawValue
-      return this
-    } else {
-      const newRaw = new Uint8Array(this.raw)
-      newRaw[pos.toRaw()] = rawValue
-      return new Board(newRaw, false)
-    }
+    return this.rawSet(pos, rawValue)
   }
 
   reduce<ACC> (fun: (acc: ACC, piece: pieces.Square, pos: util.Pos, board: this) => ACC, acc: ACC) {
