@@ -1,0 +1,9191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Black King Side Castle by King Movement 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black King Side Castle by King Movement 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="k"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black King Side Castle by King Movement 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black King Side Castle by Rook Capture 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black King Side Castle by Rook Capture 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="k"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black King Side Castle by Rook Capture 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Left Capture Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Left Capture Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Left Capture Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div>
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="q"
+        />
+        <div
+          data-name="n"
+        />
+        <div
+          data-name="r"
+        />
+        <div
+          data-name="b"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Left Capture Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-highlighted="true"
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div>
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="q"
+        />
+        <div
+          data-name="n"
+        />
+        <div
+          data-name="r"
+        />
+        <div
+          data-name="b"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-highlighted="true"
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-incheck="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by King Movement 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by King Movement 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="k"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by King Movement 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by Rook Capture 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by Rook Capture 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="k"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Queen Side Castle by Rook Capture 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Black Right Capture Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Right Capture Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Right Capture Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div>
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="q"
+        />
+        <div
+          data-name="n"
+        />
+        <div
+          data-name="r"
+        />
+        <div
+          data-name="b"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Black Right Capture Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div />
+    <div
+      data-incheck="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Empty Board 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 5`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 6`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 7`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 8`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Fouls Mate 9`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-incheck="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`Start Board 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="n"
+    />
+    <div
+      data-name="b"
+    />
+    <div
+      data-isblack="true"
+      data-name="q"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+      data-name="b"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div
+      data-isblack="true"
+      data-name="p"
+    />
+    <div
+      data-name="p"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div
+      data-name="N"
+    />
+    <div
+      data-isblack="true"
+      data-name="B"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="B"
+    />
+    <div
+      data-isblack="true"
+      data-name="N"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by King Movement 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by King Movement 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by King Movement 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by Rook Capture 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by Rook Capture 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White King Side Castle by Rook Capture 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Left Capture Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Left Capture Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="n"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Left Capture Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="n"
+    >
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="Q"
+        />
+        <div
+          data-name="N"
+        />
+        <div
+          data-name="R"
+        />
+        <div
+          data-name="B"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Left Capture Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div>
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="Q"
+        />
+        <div
+          data-name="N"
+        />
+        <div
+          data-name="R"
+        />
+        <div
+          data-name="B"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="P"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-incheck="true"
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by King Movement 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by King Movement 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by King Movement 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="R"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by Rook Capture 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by Rook Capture 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+      data-name="R"
+    />
+    <div />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-highlighted="true"
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-canmoveto="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Queen Side Castle by Rook Capture 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="r"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div
+      data-name="R"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="R"
+    />
+  </div>
+</div>
+`;
+
+exports[`White Right Capture Promote 1`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Right Capture Promote 2`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-canmoveto="true"
+      data-name="n"
+    />
+    <div
+      data-canmoveto="true"
+      data-isblack="true"
+    />
+    <div
+      data-canmoveto="true"
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Right Capture Promote 3`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="n"
+    >
+      <div
+        class="PromoteMenu"
+      >
+        <div
+          data-name="Q"
+        />
+        <div
+          data-name="N"
+        />
+        <div
+          data-name="R"
+        />
+        <div
+          data-name="B"
+        />
+      </div>
+    </div>
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-highlighted="true"
+      data-name="P"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`White Right Capture Promote 4`] = `
+<div>
+  <div
+    class="ChessBoard"
+  >
+    <div
+      data-name="n"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-name="Q"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-incheck="true"
+      data-name="k"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+    <div
+      data-isblack="true"
+      data-name="K"
+    />
+    <div />
+    <div
+      data-isblack="true"
+    />
+    <div />
+  </div>
+</div>
+`;
