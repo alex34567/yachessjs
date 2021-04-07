@@ -5,18 +5,21 @@ import LabelledTextBox from './LabelledTextbox'
 import { ChangeEvent, useState } from 'react'
 import BoardSquare from './BoardSquare'
 import { Pos } from './logic/util'
+import { changeMode } from './util'
+import { useHistory, useLocation } from 'react-router-dom'
 
 export interface SetupInfoProps {
   state: State
   changeState: (state: State) => void
   selectedPiece?: Piece
   selectPiece: (piece?: Piece) => void
-  switchMode: (isStartup: boolean) => void
 }
 
 export default function SetupInfo (props: SetupInfoProps) {
   const [inputFen, setInputFen] = useState(() => props.state.toFen())
   const [fenImportError, setImportError] = useState<string>()
+  const history = useHistory()
+  const location = useLocation()
 
   let errorKey = 0
   const errors: React.ReactElement[] = []
@@ -83,7 +86,7 @@ export default function SetupInfo (props: SetupInfoProps) {
     }))
   }
   function onPlay () {
-    props.switchMode(false)
+    changeMode(history, location, props.state, '/play', false)
   }
 
   newError(fenImportError, fenImportError)

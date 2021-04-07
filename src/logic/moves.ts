@@ -4,6 +4,7 @@ import * as moveNotation from './move_notation'
 import * as state from './state'
 import * as immmutable from 'immutable'
 import { State } from './state'
+import assert from 'assert'
 
 abstract class Move {
   state: state.State
@@ -179,9 +180,9 @@ class EnPassant extends NormalMove {
   protected doChain (state: State) {
     super.doChain(state)
     const passedPawn = this.toPos.addRank(-this.piece.color.PAWN_RANK_DIR)
-    console.assert(passedPawn)
+    assert(passedPawn)
 
-    state.board = state.board.set(passedPawn!, pieces.EMPTY)
+    state.board = state.board.set(passedPawn, pieces.EMPTY)
   }
 }
 

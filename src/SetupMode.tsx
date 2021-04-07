@@ -5,20 +5,28 @@ import SetupInfo from './SetupInfo'
 import * as React from 'react'
 import { Pos } from './logic/util'
 import { EMPTY, Piece } from './logic/pieces'
-import { ModeProps } from './App'
+import { changeMode, getStateFromQuery } from './util'
+import { useHistory, useLocation } from 'react-router-dom'
 
-export default function SetupMode (props: ModeProps) {
+export default function SetupMode (_props: {}) {
+  const history = useHistory()
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
   const [selectedPiece, setSelectedPiece] = useState<Piece>()
+  const state = getStateFromQuery(history)
+  const location = useLocation()
 
-  const makeMove = (state: State) => props.setDefaultState(state)
+  function setState (newState: State) {
+    changeMode(history, location, newState, '/setup', true)
+  }
+
+  const makeMove = (state: State) => setState(state)
   function changeHighlight (pos?: Pos) {
     setHighlightedPos(pos)
     setSelectedPiece(undefined)
   }
   function selectPiece (piece?: Piece) {
     if (highlightedPos) {
-      props.setDefaultState(props.defaultState.modify(newState => {
+      setState(state.modify(newState => {
         newState.board = newState.board.set(highlightedPos, EMPTY)
       }))
     } else {
@@ -29,7 +37,7 @@ export default function SetupMode (props: ModeProps) {
 
   const setup = { setupPiece: selectedPiece }
   return <div className='App'>
-    <ChessBoard changeHighlight={changeHighlight} highlightedPos={highlightedPos} state={props.defaultState} setup={setup} makeMove={makeMove}/>
-    <SetupInfo changeState={makeMove} selectPiece={selectPiece} selectedPiece={selectedPiece} switchMode={props.switchMode} state={props.defaultState}/>
+    <ChessBoard changeHighlight={changeHighlight} highlightedPos={highlightedPos} state={state} setup={setup} makeMove={makeMove}/>
+    <SetupInfo changeState={makeMove} selectPiece={selectPiece} selectedPiece={selectedPiece} state={state}/>
   </div>
 }
