@@ -3,6 +3,7 @@ import { HumanFactory, Player, PlayerFactory } from './player'
 import * as React from 'react'
 import { useState } from 'react'
 import PlayerSelector from './PlayerSelector'
+import { changeTheme } from './theme'
 
 interface GameInfoProps {
   state: State
@@ -26,6 +27,16 @@ export default function GameInfo (props: GameInfoProps) {
     setBlackFactory(player)
   }
 
+  const onThemeChange = () => {
+    changeTheme({
+      piece: 'merida',
+      board: {
+        blackColor: 'darkGreen',
+        whiteColor: 'white'
+      }
+    })
+  }
+
   let checkmateText
   if (props.state.isCheckmate()) {
     checkmateText = 'Checkmate'
@@ -44,6 +55,7 @@ export default function GameInfo (props: GameInfoProps) {
       <br/>
       <button onClick={restartButton}>Restart</button>
       <button onClick={props.switchMode}>Setup</button>
+      <button onClick={onThemeChange}>DEBUG: THEME CHANGE</button>
     </div>
   )
 }

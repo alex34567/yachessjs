@@ -1,5 +1,6 @@
 import { BLACK, Square, WHITE } from './logic/pieces'
 import * as React from 'react'
+import { Theme, useTheme } from './theme'
 
 export interface BoardSquareProps {
   isBlack?: boolean
@@ -41,15 +42,17 @@ function getPieceName (piece: Square): string | undefined {
   return undefined
 }
 
-function getPieceImage (piece: Square): React.ReactNode | undefined {
+function getPieceImage (theme: Theme, piece: Square): React.ReactNode | undefined {
   const name = getPieceName(piece)
   if (name) {
-    return <img alt={name} className='ChessPiece' src={process.env.PUBLIC_URL + `pieces/cburnett/${name}.svg`} />
+    return <img alt={name} className='ChessPiece' src={process.env.PUBLIC_URL + `pieces/${theme.piece}/${name}.svg`} />
   }
   return undefined
 }
 
 export default function BoardSquare (props: BoardSquareProps) {
+  const theme = useTheme()
+
   let className = 'ChessBoardSquare'
   if (props.isBlack) {
     className += ' ChessBoardSquareBlack'
@@ -70,7 +73,7 @@ export default function BoardSquare (props: BoardSquareProps) {
         <rect width='100%' height='100%' fill='red' fillOpacity='.5' />
       </svg>
   }
-  const pieceImage = getPieceImage(props.piece)
+  const pieceImage = getPieceImage(theme, props.piece)
   let moveIndicator
   if (props.canMoveTo && !pieceImage) {
     moveIndicator =
