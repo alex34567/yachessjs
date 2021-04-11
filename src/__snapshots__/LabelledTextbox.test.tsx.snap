@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textbox with class 1`] = `
+<div>
+  <div
+    class="LabelledTextbox"
+  >
+    <label>
+      Hi
+    </label>
+    <input
+      class="Test LabelledTextboxTextbox"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Textbox without class 1`] = `
+<div>
+  <div
+    class="LabelledTextbox"
+  >
+    <label>
+      Hi
+    </label>
+    <input
+      class="LabelledTextboxTextbox"
+      type="text"
+    />
+  </div>
+</div>
+`;

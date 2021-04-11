@@ -36,16 +36,13 @@ export default function GameInfo (props: GameInfoProps) {
     <div className='GameInfo'>
       {checkmateText}
       <br/>
-      <button onClick={restartButton}>
-        Restart
-      </button>
-      <br/>
       <label>White Player </label>
       <PlayerSelector onPlayerChange={onWhiteChange} value={whiteFactory}/>
       <br/>
       <label>Black Player </label>
       <PlayerSelector onPlayerChange={onBlackChange} value={blackFactory}/>
       <br/>
+      <button onClick={restartButton}>Restart</button>
       <button onClick={props.switchMode}>Setup</button>
     </div>
   )
