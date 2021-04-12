@@ -17,7 +17,7 @@ export function changeMode (history: History, location: Location, state: State, 
   const newLoc = { ...location }
   const query = new URLSearchParams(newLoc.search)
   const fen = state.toFen()
-  newLoc.pathname = path
+  newLoc.pathname = process.env.PUBLIC_URL + path
   if (fen === getStartState().toFen()) {
     query.delete('fen')
   } else {
