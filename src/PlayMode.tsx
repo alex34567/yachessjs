@@ -66,7 +66,7 @@ export default function PlayMode (props: ModeProps) {
   }
 
   const switchMode = () => {
-    changeMode(history, location, state, '/setup', false)
+    changeMode(history, location, state, '/setup.html', false)
   }
 
   let currPlayer = players.white

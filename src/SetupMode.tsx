@@ -17,7 +17,7 @@ export default function SetupMode (props: ModeProps) {
   const location = useLocation()
 
   function setState (newState: State) {
-    changeMode(history, location, newState, '/setup', true)
+    changeMode(history, location, newState, '/setup.html', true)
   }
 
   const makeMove = (state: State) => setState(state)

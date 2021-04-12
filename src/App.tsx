@@ -35,11 +35,11 @@ function App (_props: {}) {
       {themeSetup}
       <BrowserRouter>
         <Switch>
-          <Redirect exact from={process.env.PUBLIC_URL + '/'} to={process.env.PUBLIC_URL + '/play'}/>
-          <Route path={process.env.PUBLIC_URL + '/play'}>
+          <Redirect exact from={process.env.PUBLIC_URL + '/'} to={process.env.PUBLIC_URL + '/play.html'}/>
+          <Route path={process.env.PUBLIC_URL + '/play.html'}>
             <PlayMode theme={theme} openTheme={openTheme}/>
           </Route>
-          <Route path={process.env.PUBLIC_URL + '/setup'}>
+          <Route path={process.env.PUBLIC_URL + '/setup.html'}>
             <SetupMode theme={theme} openTheme={openTheme}/>
           </Route>
         </Switch>

@@ -89,7 +89,7 @@ export default function SetupInfo (props: SetupInfoProps) {
     }))
   }
   function onPlay () {
-    changeMode(history, location, props.state, '/play', false)
+    changeMode(history, location, props.state, '/play.html', false)
   }
 
   newError(fenImportError, fenImportError)
