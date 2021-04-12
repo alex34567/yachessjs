@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/yachessjs/static/css/main.d8f856f4.chunk.css",
+    "main.js": "/yachessjs/static/js/main.e8089132.chunk.js",
+    "main.js.map": "/yachessjs/static/js/main.e8089132.chunk.js.map",
+    "runtime-main.js": "/yachessjs/static/js/runtime-main.c654a8fc.js",
+    "runtime-main.js.map": "/yachessjs/static/js/runtime-main.c654a8fc.js.map",
+    "static/js/2.ffa6c071.chunk.js": "/yachessjs/static/js/2.ffa6c071.chunk.js",
+    "static/js/2.ffa6c071.chunk.js.map": "/yachessjs/static/js/2.ffa6c071.chunk.js.map",
+    "index.html": "/yachessjs/index.html",
+    "static/css/main.d8f856f4.chunk.css.map": "/yachessjs/static/css/main.d8f856f4.chunk.css.map",
+    "static/js/2.ffa6c071.chunk.js.LICENSE.txt": "/yachessjs/static/js/2.ffa6c071.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c654a8fc.js",
+    "static/js/2.ffa6c071.chunk.js",
+    "static/css/main.d8f856f4.chunk.css",
+    "static/js/main.e8089132.chunk.js"
+  ]
+}
