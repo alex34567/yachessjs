@@ -46,7 +46,7 @@ function getPieceName (piece: Square): string | undefined {
 function getPieceImage (theme: Theme, piece: Square): React.ReactNode | undefined {
   const name = getPieceName(piece)
   if (name) {
-    return <img alt={name} className='ChessPiece' src={process.env.PUBLIC_URL + `/pieces/${theme.piece.prefix}/${name}.svg`} />
+    return <img alt={name} className='ChessPiece' src={`${process.env.PUBLIC_URL}/pieces/${theme.piece.prefix}/${name}.svg`} />
   }
   return undefined
 }
