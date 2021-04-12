@@ -1,5 +1,15 @@
 # Yachessjs Yet Another Chess (in) JavaScript
 
+## Building
+This page is based on create react app, so the debug server can be run as,
+
+```
+npm install
+npm run
+```
+
+`npm build` creates a production build ready to deploy
+
 ## How to
 When you open the page, you should see a chess board.
 If you want to play against someone next to you, simply start playing.
@@ -13,4 +23,4 @@ You get a fen for later importing back into this site or almost any other chess 
 When you are done removing the opponents queen behind their back, push play to cement you're changed.
 
 ## Themes
-Push theme setup to change how the board sqaures, or the pieces look.
+Push theme setup to change how the board squares, or the pieces look.
