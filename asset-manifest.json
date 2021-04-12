@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/yachessjs/static/css/main.d8f856f4.chunk.css",
-    "main.js": "/yachessjs/static/js/main.58d4d1e8.chunk.js",
-    "main.js.map": "/yachessjs/static/js/main.58d4d1e8.chunk.js.map",
+    "main.js": "/yachessjs/static/js/main.7df2e3a5.chunk.js",
+    "main.js.map": "/yachessjs/static/js/main.7df2e3a5.chunk.js.map",
     "runtime-main.js": "/yachessjs/static/js/runtime-main.c654a8fc.js",
     "runtime-main.js.map": "/yachessjs/static/js/runtime-main.c654a8fc.js.map",
     "static/js/2.ffa6c071.chunk.js": "/yachessjs/static/js/2.ffa6c071.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.c654a8fc.js",
     "static/js/2.ffa6c071.chunk.js",
     "static/css/main.d8f856f4.chunk.css",
-    "static/js/main.58d4d1e8.chunk.js"
+    "static/js/main.7df2e3a5.chunk.js"
   ]
 }
