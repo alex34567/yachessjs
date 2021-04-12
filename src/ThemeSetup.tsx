@@ -68,7 +68,7 @@ export default function ThemeSetup (props: ThemeSetupProps) {
 
   return (
     <div className='Window'>
-      <div className='WindowCover'/>
+      <div className='WindowCover' onClick={onCancel}/>
       <div className='WindowContents'>
         <h1>Theme Setup</h1>
         <label>Board Theme:</label>
