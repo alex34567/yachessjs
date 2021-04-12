@@ -5,8 +5,10 @@ import { act } from '@testing-library/react'
 import PromoteMenu from './PromoteMenu'
 import * as immutable from 'immutable'
 import React from 'react'
+import { ThemeManager } from './theme'
 
 jest.mock('./BoardSquare')
+jest.mock('./theme')
 
 let container: HTMLDivElement | null = null
 beforeEach(() => {
@@ -27,7 +29,7 @@ test('render white', () => {
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
   expect(container).toMatchSnapshot()
 })
@@ -37,17 +39,17 @@ test('render black', () => {
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
   expect(container).toMatchSnapshot()
 })
 
 test('queen promote', () => {
-  let state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
+  const state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
 
   act(() => {
@@ -59,11 +61,11 @@ test('queen promote', () => {
 })
 
 test('knight promote', () => {
-  let state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
+  const state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
 
   act(() => {
@@ -75,11 +77,11 @@ test('knight promote', () => {
 })
 
 test('rook promote', () => {
-  let state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
+  const state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
 
   act(() => {
@@ -91,11 +93,11 @@ test('rook promote', () => {
 })
 
 test('bishop promote', () => {
-  let state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
+  const state = stateFromFen('8/P6k/8/8/8/8/8/7K w - - 0 1')
   const moves = immutable.List(state.moves().filter(x => !x.invalid() && x.isNormal() && x.isPromote()) as Promotion[])
   const onPromote = jest.fn()
   act(() => {
-    render(<PromoteMenu moves={moves} onPromote={onPromote} />, container)
+    render(<PromoteMenu moves={moves} onPromote={onPromote} theme={new ThemeManager()} />, container)
   })
 
   act(() => {

@@ -5,10 +5,13 @@ import { getStartState, State, stateFromFen } from './logic/state'
 import { act } from '@testing-library/react'
 import React from 'react'
 import { Pos } from './logic/util'
+import {ThemeManager, useTheme} from "./theme";
 
 jest.mock('./BoardSquare')
+jest.mock('./theme')
 
 let container: HTMLDivElement | null = null
+const theme = new ThemeManager()
 let state = getStartState()
 let highlight: Pos | undefined
 let board: Element | undefined
@@ -21,7 +24,7 @@ function makeMove (inState: State) {
   reRender()
 }
 function reRender () {
-  render(<ChessBoard makeMove={makeMove} highlightedPos={highlight} state={state} changeHighlight={changeHighlight}/>, container)
+  render(<ChessBoard makeMove={makeMove} highlightedPos={highlight} state={state} changeHighlight={changeHighlight} theme={theme}/>, container)
 }
 
 function clickOnSquare (pos: Pos) {
@@ -51,7 +54,7 @@ beforeEach(() => {
   highlight = undefined
   state = getStartState()
   reRender()
-  board = container?.firstElementChild!
+  board = container?.firstElementChild?.firstElementChild!
 })
 
 afterEach(() => {

@@ -1,4 +1,6 @@
-import { useTheme } from './theme'
+export {}
+
+/* import { useTheme } from './theme'
 import React, { useEffect } from 'react'
 import assert from 'assert'
 
@@ -17,9 +19,8 @@ export default function BoardSquareTheme () {
        background-color: ${theme.board.blackColor};
       }
     `
-    const styleContainer = document.createElement('div')
-    styleContainer.innerHTML = `<style>${rawCss}</style>`
-    const style = styleContainer.firstElementChild!
+    const style = document.createElement('style')
+    style.textContent = rawCss
     document.head.appendChild(style)
     return () => {
       style.remove()
@@ -27,4 +28,4 @@ export default function BoardSquareTheme () {
   })
 
   return <></>
-}
+} */

@@ -1,7 +1,12 @@
 {
-  "piece": "cburnett",
-  "board": {
-    "blackColor": "darkGray",
-    "whiteColor": "lightGray"
+  "piece": {
+    "name": "Cburnett",
+    "prefix": "cburnett"
+  },
+  "boardSquare": {
+    "name": "Wood",
+    "id": "wood",
+    "blackColor": "#794932",
+    "whiteColor": "#d19c70"
   }
 }

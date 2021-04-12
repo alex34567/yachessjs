@@ -3,7 +3,7 @@
 exports[`Can Move To 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <svg
       class="Overlay"
@@ -21,7 +21,7 @@ exports[`Can Move To 1`] = `
 exports[`Can capture 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <img
       alt="White Pawn"
@@ -47,7 +47,7 @@ exports[`Can capture 1`] = `
 exports[`Empty Black Square 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareBlack"
+    class="ChessBoardSquare TestTheme ChessBoardSquareBlack"
   />
 </div>
 `;
@@ -55,7 +55,7 @@ exports[`Empty Black Square 1`] = `
 exports[`Empty Square 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   />
 </div>
 `;
@@ -63,7 +63,7 @@ exports[`Empty Square 1`] = `
 exports[`Highlighted in check 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <svg
       class="Overlay"
@@ -97,7 +97,7 @@ exports[`Highlighted in check 1`] = `
 exports[`In check 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <svg
       class="Overlay"
@@ -121,7 +121,7 @@ exports[`In check 1`] = `
 exports[`Selected Queen 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <svg
       class="Overlay"
@@ -145,7 +145,7 @@ exports[`Selected Queen 1`] = `
 exports[`White Pawn 1`] = `
 <div>
   <div
-    class="ChessBoardSquare ChessBoardSquareWhite"
+    class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
     <img
       alt="White Pawn"

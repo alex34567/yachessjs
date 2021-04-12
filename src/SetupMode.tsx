@@ -7,8 +7,9 @@ import { Pos } from './logic/util'
 import { EMPTY, Piece } from './logic/pieces'
 import { changeMode, getStateFromQuery } from './util'
 import { useHistory, useLocation } from 'react-router-dom'
+import { ModeProps } from './App'
 
-export default function SetupMode (_props: {}) {
+export default function SetupMode (props: ModeProps) {
   const history = useHistory()
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
   const [selectedPiece, setSelectedPiece] = useState<Piece>()
@@ -36,8 +37,12 @@ export default function SetupMode (_props: {}) {
   }
 
   const setup = { setupPiece: selectedPiece }
-  return <div className='App'>
-    <ChessBoard changeHighlight={changeHighlight} highlightedPos={highlightedPos} state={state} setup={setup} makeMove={makeMove}/>
-    <SetupInfo changeState={makeMove} selectPiece={selectPiece} selectedPiece={selectedPiece} state={state}/>
-  </div>
+  return (
+    <div className='App'>
+      <div className="PlayChessBoardBox">
+        <ChessBoard changeHighlight={changeHighlight} highlightedPos={highlightedPos} state={state} setup={setup} makeMove={makeMove} theme={props.theme}/>
+      </div>
+      <SetupInfo changeState={makeMove} selectPiece={selectPiece} selectedPiece={selectedPiece} state={state} theme={props.theme} openTheme={props.openTheme}/>
+    </div>
+  )
 }

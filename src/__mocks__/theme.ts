@@ -1,30 +1,11 @@
-import { useEffect, useState } from 'react'
-import DEFAULT_THEME from './defaultTheme.json'
+import DEFAULT_THEME from '../defaultTheme.json'
 import assert from 'assert'
-
-export interface BoardSquareTheme {
-  name: string,
-  id: string,
-  // Must be an css color
-  blackColor: string,
-  whiteColor: string,
-}
-
-export interface PieceTheme {
-  prefix: string,
-  name: string,
-}
-
-export interface Theme {
-  piece: PieceTheme
-  boardSquare: BoardSquareTheme,
-}
-
-let CLASSNAME_SUFFIX = 0
+import { Theme } from '../theme'
+import { useState } from 'react'
 
 export class ThemeManager {
   readonly theme: Readonly<Theme>
-  readonly className: string
+  readonly className: string = 'TestTheme'
 
   readonly style = document.createElement('style')
 
@@ -33,8 +14,6 @@ export class ThemeManager {
       theme = DEFAULT_THEME
     }
     this.theme = { ...theme }
-    this.className = `ChessTheme-${CLASSNAME_SUFFIX}`
-    CLASSNAME_SUFFIX++
     assert(/^[0-9a-zA-Z#]+$/.test(this.theme.boardSquare.whiteColor), 'Attempted xss')
     assert(/^[0-9a-zA-Z#]+$/.test(this.theme.boardSquare.blackColor), 'Attempted xss')
     this.style.textContent = `
@@ -51,12 +30,6 @@ export class ThemeManager {
 
 export function useTheme (defaultTheme?: Theme): [ThemeManager, (theme: Theme) => void] {
   const [theme, setTheme] = useState(new ThemeManager(defaultTheme))
-  useEffect(() => {
-    document.head.append(theme.style)
-    return () => {
-      theme.style.remove()
-    }
-  })
 
   return [theme, theme => {
     setTheme(new ThemeManager(theme))

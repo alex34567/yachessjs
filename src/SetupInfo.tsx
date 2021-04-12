@@ -7,12 +7,15 @@ import BoardSquare from './BoardSquare'
 import { Pos } from './logic/util'
 import { changeMode } from './util'
 import { useHistory, useLocation } from 'react-router-dom'
+import { ThemeManager } from './theme'
 
 export interface SetupInfoProps {
   state: State
   changeState: (state: State) => void
   selectedPiece?: Piece
   selectPiece: (piece?: Piece) => void
+  theme: ThemeManager
+  openTheme: () => void
 }
 
 export default function SetupInfo (props: SetupInfoProps) {
@@ -113,7 +116,7 @@ export default function SetupInfo (props: SetupInfoProps) {
       }
     }
     const highlighted = piece === props.selectedPiece
-    return <BoardSquare key={key} piece={piece} highlighted={highlighted} onClick={onClick}/>
+    return <BoardSquare key={key} piece={piece} highlighted={highlighted} onClick={onClick} theme={props.theme}/>
   }
 
   const blackPieces = [BLACK.PAWN, BLACK.KNIGHT, BLACK.BISHOP, BLACK.ROOK, BLACK.QUEEN, BLACK.KING].map(piecesToElement)
@@ -187,6 +190,7 @@ export default function SetupInfo (props: SetupInfoProps) {
         <button onClick={onClear}>Clear</button>
       </div>
       <button disabled={hasError} onClick={onPlay}>Play</button>
+      <button onClick={props.openTheme}>Change Theme</button>
     </div>
   )
 }

@@ -8,13 +8,14 @@ import GameInfo from './GameInfo'
 import { Pos } from './logic/util'
 import { useHistory, useLocation } from 'react-router-dom'
 import { changeMode, getStateFromQuery } from './util'
+import { ModeProps } from './App'
 
 interface Players {
   white: Player
   black: Player
 }
 
-export default function PlayMode (_props: {}) {
+export default function PlayMode (props: ModeProps) {
   const history = useHistory()
   const location = useLocation()
   const [players, setPlayers] = useState<Players>({ white: new Human(), black: new Human() })
@@ -74,8 +75,10 @@ export default function PlayMode (_props: {}) {
   }
   return (
     <div className="App">
-      <ChessBoard changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state}/>
-      <GameInfo state={state} restart={restart} switchMode={switchMode}/>
+      <div className="PlayChessBoardBox">
+        <ChessBoard changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state} theme={props.theme}/>
+      </div>
+      <GameInfo state={state} restart={restart} switchMode={switchMode} openTheme={props.openTheme}/>
     </div>
   )
 }

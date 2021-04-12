@@ -7,6 +7,7 @@ import { State } from './logic/state'
 import * as immutable from 'immutable'
 import PromoteMenu from './PromoteMenu'
 import BoardSquare from './BoardSquare'
+import { ThemeManager } from './theme'
 
 export interface ChessBoardSetup {
   setupPiece?: Piece
@@ -16,15 +17,16 @@ export interface ChessBoardProps {
   state: State
   setup?: ChessBoardSetup
   highlightedPos?: Pos
-  changeHighlight: (pos: Pos | undefined) => void
+  changeHighlight?: (pos: Pos | undefined) => void
   makeMove?: (state: State) => void
+  theme: ThemeManager
 }
 
 export default function ChessBoard (props: ChessBoardProps) {
   const [promotePos, setPromotePos] = useState<Pos | null>(null)
   const highlightedPos = props.highlightedPos
 
-  if (highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
+  if (props.changeHighlight && highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
     props.changeHighlight(undefined)
   }
   if (!highlightedPos && promotePos) {
@@ -82,7 +84,7 @@ export default function ChessBoard (props: ChessBoardProps) {
         return false
       })
       let onClick = () => {
-        props.changeHighlight(undefined)
+        props.changeHighlight && props.changeHighlight(undefined)
         setPromotePos(null)
       }
       const move = moves[moveIndex]
@@ -96,7 +98,7 @@ export default function ChessBoard (props: ChessBoardProps) {
             state.board = state.board.set(highlightedPos, EMPTY)
             state.board = state.board.set(pos, piece)
           }))
-          props.changeHighlight(undefined)
+          props.changeHighlight && props.changeHighlight(undefined)
           setPromotePos(null)
         }
       } else if (props.setup && props.setup.setupPiece && props.makeMove) {
@@ -106,17 +108,17 @@ export default function ChessBoard (props: ChessBoardProps) {
           makeMove(props.state.modify(state => {
             state.board = state.board.set(pos, setupPiece)
           }))
-          props.changeHighlight(undefined)
+          props.changeHighlight && props.changeHighlight(undefined)
         }
       } else if (moveIndex === -1 && piece.isOccupied()) {
         onClick = () => {
-          props.changeHighlight(pos)
+          props.changeHighlight && props.changeHighlight(pos)
           setPromotePos(null)
         }
       } else if (moveIndex >= 0 && ((move.isNormal() && !move.isPromote()) || move.isCastle())) {
         onClick = () => {
           props.makeMove!(moves[moveIndex].do())
-          props.changeHighlight(undefined)
+          props.changeHighlight && props.changeHighlight(undefined)
           setPromotePos(null)
         }
       } else if (moveIndex >= 0 && move.isNormal() && move.isPromote() && !promotePos) {
@@ -129,7 +131,7 @@ export default function ChessBoard (props: ChessBoardProps) {
       if (drawPromotePos && pos.compare(drawPromotePos) === 0) {
         const onPromote = (state: State) => {
           props.makeMove!(state)
-          props.changeHighlight(undefined)
+          props.changeHighlight && props.changeHighlight(undefined)
           setPromotePos(null)
         }
 
@@ -142,20 +144,22 @@ export default function ChessBoard (props: ChessBoardProps) {
 
         const promoteList = immutable.List(moves.filter<Promotion>(PromoteFilter))
 
-        promoteMenu = <PromoteMenu moves={promoteList} onPromote={onPromote}/>
+        promoteMenu = <PromoteMenu moves={promoteList} onPromote={onPromote} theme={props.theme}/>
       }
       const canMoveTo = moveIndex >= 0 && !promotePos
       squares.push(
         <BoardSquare key={i * 8 + j} canMoveTo={canMoveTo} isBlack={isBlack} piece={piece} highlighted={highlighted}
-                     inCheck={inCheck} onClick={onClick}>
+                     inCheck={inCheck} onClick={onClick} theme={props.theme}>
           {promoteMenu}
         </BoardSquare>
       )
     }
   }
   return (
-    <div className="ChessBoard">
-      {squares}
+    <div className="Square">
+      <div className="ChessBoard">
+        {squares}
+      </div>
     </div>
   )
 }
