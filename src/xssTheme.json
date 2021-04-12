@@ -1,7 +1,0 @@
-{
-  "piece": "cburnett",
-  "board": {
-    "blackColor": "</style><img src='x' onerror='alert(1)'>",
-    "whiteColor": "lightGray"
-  }
-}
