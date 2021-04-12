@@ -73,7 +73,7 @@ export class Stockfish extends Player {
       this.state = state
       if (!this.stockfishHandle) {
         const wasmSupported = typeof WebAssembly === 'object' && WebAssembly.validate(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00))
-        this.stockfishHandle = new Worker(wasmSupported ? process.env.PUBLIC_URL + 'stockfish.js/stockfish.wasm.js' : process.env.PUBLIC_URL + 'stockfish.js/stockfish.js')
+        this.stockfishHandle = new Worker(wasmSupported ? process.env.PUBLIC_URL + '/stockfish.js/stockfish.wasm.js' : process.env.PUBLIC_URL + '/stockfish.js/stockfish.js')
         this.stockfishHandle.addEventListener('message', this.parseStockfishLine)
         this.stockfishHandle.postMessage('uci')
       } else {
