@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Pos } from './logic/util'
 import { Move, Promotion } from './logic/moves'
-import { BLACK, EMPTY, Piece } from './logic/pieces'
+import { BLACK, EMPTY, Piece, WHITE } from './logic/pieces'
 import { State } from './logic/state'
 import * as immutable from 'immutable'
 import PromoteMenu from './PromoteMenu'
@@ -19,6 +19,7 @@ export interface ChessBoardProps {
   highlightedPos?: Pos
   changeHighlight?: (pos: Pos | undefined) => void
   makeMove?: (state: State) => void
+  flipBoard?: boolean
   theme: ThemeManager
 }
 
@@ -37,8 +38,11 @@ export default function ChessBoard (props: ChessBoardProps) {
   let isBlack = false
   let moves: Move[] = []
   let drawPromotePos = promotePos
-  if (drawPromotePos && props.state.currTurn === BLACK) {
+  if (drawPromotePos && !props.flipBoard && props.state.currTurn === BLACK) {
     drawPromotePos = drawPromotePos.addRank(3)
+  }
+  if (drawPromotePos && props.flipBoard && props.state.currTurn === WHITE) {
+    drawPromotePos = drawPromotePos.addRank(-3)
   }
   if (highlightedPos && props.makeMove) {
     const moveFilter = (move: Move) => {
@@ -59,9 +63,20 @@ export default function ChessBoard (props: ChessBoardProps) {
       moves = moves.concat(props.state.flipTurn().moves().filter(moveFilter))
     }
   }
-  for (let i = 7; i >= 0; i--) {
+  let initRank = 7
+  let rankStep = -1
+  let initFile = 0
+  let fileStep = 1
+  if (props.flipBoard) {
+    initRank = 0
+    rankStep = 1
+    initFile = 7
+    fileStep = -1
+  }
+
+  for (let i = initRank; i >= 0 && i < 8; i += rankStep) {
     isBlack = !isBlack
-    for (let j = 0; j < 8; j++) {
+    for (let j = initFile; j >= 0 && j < 8; j += fileStep) {
       isBlack = !isBlack
       const pos = new Pos(j, i)
       const highlighted = Boolean(highlightedPos && pos.compare(highlightedPos) === 0)

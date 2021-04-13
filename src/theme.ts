@@ -56,7 +56,7 @@ export function useTheme (defaultTheme?: Theme): [ThemeManager, (theme: Theme) =
     return () => {
       theme.style.remove()
     }
-  })
+  }, [theme])
 
   return [theme, theme => {
     setTheme(new ThemeManager(theme))

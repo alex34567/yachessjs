@@ -9,6 +9,7 @@ interface GameInfoProps {
   restart: (white: Player, black: Player) => void
   switchMode: () => void
   openTheme: () => void
+  flipBoard: () => void
 }
 
 export default function GameInfo (props: GameInfoProps) {
@@ -45,6 +46,8 @@ export default function GameInfo (props: GameInfoProps) {
       <br/>
       <button onClick={restartButton}>Restart</button>
       <button onClick={props.switchMode}>Setup</button>
+      <br/>
+      <button onClick={props.flipBoard}>Flip Board</button>
       <button onClick={props.openTheme}>Change Theme</button>
     </div>
   )

@@ -26,6 +26,7 @@
   height: 100%;
   position: absolute;
   display: grid;
+  z-index: 0;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
 }

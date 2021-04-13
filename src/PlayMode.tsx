@@ -22,6 +22,7 @@ export default function PlayMode (props: ModeProps) {
 
   const [state, setState] = useState(() => getStateFromQuery(history))
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
+  const [flipBoard, setFlipBoard] = useState(false)
 
   useEffect(() => {
     // If someone pushes the reset button at the exact time a move is ready,
@@ -69,6 +70,10 @@ export default function PlayMode (props: ModeProps) {
     changeMode(history, location, state, '/setup.html', false)
   }
 
+  function toggleBoardFlip () {
+    setFlipBoard(!flipBoard)
+  }
+
   let currPlayer = players.white
   if (state.currTurn === BLACK) {
     currPlayer = players.black
@@ -76,9 +81,9 @@ export default function PlayMode (props: ModeProps) {
   return (
     <div className="App">
       <div className="PlayChessBoardBox">
-        <ChessBoard changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state} theme={props.theme}/>
+        <ChessBoard flipBoard={flipBoard} changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state} theme={props.theme}/>
       </div>
-      <GameInfo state={state} restart={restart} switchMode={switchMode} openTheme={props.openTheme}/>
+      <GameInfo flipBoard={toggleBoardFlip} state={state} restart={restart} switchMode={switchMode} openTheme={props.openTheme}/>
     </div>
   )
 }
