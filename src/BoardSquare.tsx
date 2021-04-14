@@ -60,25 +60,16 @@ export default function BoardSquare (props: BoardSquareProps) {
   }
   let highlight
   if (props.highlighted) {
-    highlight =
-      <svg className='Overlay'>
-        <rect width='100%' height='100%' fill='yellow' fillOpacity='.5' />
-      </svg>
+    highlight = <div className='Highlight'/>
   }
   let checkHighlight
   if (props.inCheck) {
-    checkHighlight =
-      <svg className='Overlay'>
-        <rect width='100%' height='100%' fill='red' fillOpacity='.5' />
-      </svg>
+    checkHighlight = <div className='InCheck'/>
   }
   const pieceImage = getPieceImage(props.theme.theme, props.piece)
   let moveIndicator
   if (props.canMoveTo && !pieceImage) {
-    moveIndicator =
-      <svg className='Overlay'>
-        <circle r='10%' cx='50%' cy='50%' />
-      </svg>
+    moveIndicator = <div className='MoveDot'/>
   }
   if (props.canMoveTo && pieceImage) {
     moveIndicator =

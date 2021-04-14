@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Pos } from './logic/util'
 import { Move, Promotion } from './logic/moves'
 import { BLACK, EMPTY, Piece, WHITE } from './logic/pieces'
@@ -8,6 +8,7 @@ import * as immutable from 'immutable'
 import PromoteMenu from './PromoteMenu'
 import BoardSquare from './BoardSquare'
 import { ThemeManager } from './theme'
+import useResizeEffect from './useResizeEffect'
 
 export interface ChessBoardSetup {
   setupPiece?: Piece
@@ -25,6 +26,25 @@ export interface ChessBoardProps {
 
 export default function ChessBoard (props: ChessBoardProps) {
   const [promotePos, setPromotePos] = useState<Pos | null>(null)
+  const [boardSize, setBoardSize] = useState(0)
+  const boardRef = useRef<HTMLDivElement | null>(null)
+  useResizeEffect(() => measureBoardSize(boardRef.current))
+  useEffect(() => {
+    measureBoardSize(boardRef.current)
+  })
+
+  function measureBoardSize (board: HTMLDivElement | null | undefined) {
+    if (board) {
+      const newBoardSize = Math.min(board.offsetHeight, board.offsetWidth)
+      if (boardSize !== newBoardSize) {
+        setBoardSize(newBoardSize)
+      }
+      boardRef.current = board
+    } else {
+      boardRef.current = null
+    }
+  }
+
   const highlightedPos = props.highlightedPos
 
   if (props.changeHighlight && highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
@@ -171,8 +191,8 @@ export default function ChessBoard (props: ChessBoardProps) {
     }
   }
   return (
-    <div className="Square">
-      <div className="ChessBoard">
+    <div className="ChessBoardSizer" ref={measureBoardSize}>
+      <div className="ChessBoard" style={ { height: boardSize, width: boardSize } }>
         {squares}
       </div>
     </div>
