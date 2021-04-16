@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player Selector 1`] = `
+<div>
+  <select>
+    <option
+      value="human"
+    >
+      Human
+    </option>
+    <option
+      value="random"
+    >
+      MrRandom
+    </option>
+    <option
+      value="stockfish"
+    >
+      Stockfish
+    </option>
+  </select>
+</div>
+`;

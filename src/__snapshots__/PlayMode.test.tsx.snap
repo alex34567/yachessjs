@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Play Mode 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <div
+      class="PlayChessBoardBox"
+    >
+      <div
+        class="ChessBoardSizer"
+      >
+        <div
+          class="ChessBoard"
+          style="height: 0px; width: 0px;"
+        >
+          <div
+            data-name="r"
+          />
+          <div
+            data-isblack="true"
+            data-name="n"
+          />
+          <div
+            data-name="b"
+          />
+          <div
+            data-isblack="true"
+            data-name="q"
+          />
+          <div
+            data-name="k"
+          />
+          <div
+            data-isblack="true"
+            data-name="b"
+          />
+          <div
+            data-name="n"
+          />
+          <div
+            data-isblack="true"
+            data-name="r"
+          />
+          <div
+            data-isblack="true"
+            data-name="p"
+          />
+          <div
+            data-name="p"
+          />
+          <div
+            data-isblack="true"
+            data-name="p"
+          />
+          <div
+            data-name="p"
+          />
+          <div
+            data-isblack="true"
+            data-name="p"
+          />
+          <div
+            data-name="p"
+          />
+          <div
+            data-isblack="true"
+            data-name="p"
+          />
+          <div
+            data-name="p"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-isblack="true"
+          />
+          <div />
+          <div
+            data-name="P"
+          />
+          <div
+            data-isblack="true"
+            data-name="P"
+          />
+          <div
+            data-name="P"
+          />
+          <div
+            data-isblack="true"
+            data-name="P"
+          />
+          <div
+            data-name="P"
+          />
+          <div
+            data-isblack="true"
+            data-name="P"
+          />
+          <div
+            data-name="P"
+          />
+          <div
+            data-isblack="true"
+            data-name="P"
+          />
+          <div
+            data-isblack="true"
+            data-name="R"
+          />
+          <div
+            data-name="N"
+          />
+          <div
+            data-isblack="true"
+            data-name="B"
+          />
+          <div
+            data-name="Q"
+          />
+          <div
+            data-isblack="true"
+            data-name="K"
+          />
+          <div
+            data-name="B"
+          />
+          <div
+            data-isblack="true"
+            data-name="N"
+          />
+          <div
+            data-name="R"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="GameInfo"
+    >
+      <br />
+      <label>
+        White Player 
+      </label>
+      <select>
+        <option
+          value="human"
+        >
+          Human
+        </option>
+        <option
+          value="random"
+        >
+          MrRandom
+        </option>
+        <option
+          value="stockfish"
+        >
+          Stockfish
+        </option>
+      </select>
+      <br />
+      <label>
+        Black Player 
+      </label>
+      <select>
+        <option
+          value="human"
+        >
+          Human
+        </option>
+        <option
+          value="random"
+        >
+          MrRandom
+        </option>
+        <option
+          value="stockfish"
+        >
+          Stockfish
+        </option>
+      </select>
+      <br />
+      <button>
+        Restart
+      </button>
+      <button>
+        Setup
+      </button>
+      <br />
+      <button>
+        Flip Board
+      </button>
+      <button>
+        Change Theme
+      </button>
+    </div>
+  </div>
+</div>
+`;

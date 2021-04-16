@@ -5,15 +5,9 @@ exports[`Can Move To 1`] = `
   <div
     class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
-    <svg
-      class="Overlay"
-    >
-      <circle
-        cx="50%"
-        cy="50%"
-        r="10%"
-      />
-    </svg>
+    <div
+      class="MoveDot"
+    />
   </div>
 </div>
 `;
@@ -26,7 +20,7 @@ exports[`Can capture 1`] = `
     <img
       alt="White Pawn"
       class="ChessPiece"
-      src="pieces/cburnett/White Pawn.svg"
+      src="/pieces/cburnett/White Pawn.svg"
     />
     <svg
       class="Overlay"
@@ -65,30 +59,16 @@ exports[`Highlighted in check 1`] = `
   <div
     class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
-    <svg
-      class="Overlay"
-    >
-      <rect
-        fill="yellow"
-        fill-opacity=".5"
-        height="100%"
-        width="100%"
-      />
-    </svg>
-    <svg
-      class="Overlay"
-    >
-      <rect
-        fill="red"
-        fill-opacity=".5"
-        height="100%"
-        width="100%"
-      />
-    </svg>
+    <div
+      class="Highlight"
+    />
+    <div
+      class="InCheck"
+    />
     <img
       alt="Black King"
       class="ChessPiece"
-      src="pieces/cburnett/Black King.svg"
+      src="/pieces/cburnett/Black King.svg"
     />
   </div>
 </div>
@@ -99,20 +79,13 @@ exports[`In check 1`] = `
   <div
     class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
-    <svg
-      class="Overlay"
-    >
-      <rect
-        fill="red"
-        fill-opacity=".5"
-        height="100%"
-        width="100%"
-      />
-    </svg>
+    <div
+      class="InCheck"
+    />
     <img
       alt="Black King"
       class="ChessPiece"
-      src="pieces/cburnett/Black King.svg"
+      src="/pieces/cburnett/Black King.svg"
     />
   </div>
 </div>
@@ -123,20 +96,13 @@ exports[`Selected Queen 1`] = `
   <div
     class="ChessBoardSquare TestTheme ChessBoardSquareWhite"
   >
-    <svg
-      class="Overlay"
-    >
-      <rect
-        fill="yellow"
-        fill-opacity=".5"
-        height="100%"
-        width="100%"
-      />
-    </svg>
+    <div
+      class="Highlight"
+    />
     <img
       alt="Black Queen"
       class="ChessPiece"
-      src="pieces/cburnett/Black Queen.svg"
+      src="/pieces/cburnett/Black Queen.svg"
     />
   </div>
 </div>
@@ -150,7 +116,7 @@ exports[`White Pawn 1`] = `
     <img
       alt="White Pawn"
       class="ChessPiece"
-      src="pieces/cburnett/White Pawn.svg"
+      src="/pieces/cburnett/White Pawn.svg"
     />
   </div>
 </div>
