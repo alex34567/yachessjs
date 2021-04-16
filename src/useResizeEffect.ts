@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react'
-import './debug'
 
 type Action = () => void
 
 const RESIZE_HANDLERS = new Map<Symbol, Action>()
-
-const anyWindow = window as any
-
-anyWindow.YACHESS_DEBUG.RESIZE_HANDLERS = RESIZE_HANDLERS
 
 function onResize () {
   for (const handler of RESIZE_HANDLERS.values()) {
@@ -17,12 +12,12 @@ function onResize () {
 
 window.addEventListener('resize', onResize)
 
-export default function useResizeEffect (hander: Action) {
+export default function useResizeEffect (handler: Action) {
   const resizeKey = useState(() => Symbol('Resize Key'))[0]
 
   useEffect(() => {
-    RESIZE_HANDLERS.set(resizeKey, hander)
-  }, [hander])
+    RESIZE_HANDLERS.set(resizeKey, handler)
+  }, [handler])
 
   useEffect(() => {
     return () => {
