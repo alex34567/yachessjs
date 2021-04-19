@@ -209,20 +209,12 @@ class State {
     }
   }
 
-  moveCount () {
-    return Math.floor((this.historyBegin + this.moveHistory.size) / 2)
+  halfMoveCount () {
+    return this.historyBegin + this.moveHistory.size
   }
 
-  commandPrompt () {
-    let gameOverStr = ''
-    if (this.isGameOver()) {
-      gameOverStr = 'Game Over '
-    }
-    if (this.currTurn === pieces.WHITE) {
-      return gameOverStr + `${this.moveCount()}. WHITE>`
-    } else {
-      return gameOverStr + `${this.moveCount()}. BLACK>`
-    }
+  moveCount () {
+    return Math.floor(this.halfMoveCount() / 2)
   }
 
   toFen () {

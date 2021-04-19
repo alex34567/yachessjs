@@ -3,6 +3,7 @@ import { HumanFactory, Player, PlayerFactory } from './player'
 import * as React from 'react'
 import { useState } from 'react'
 import PlayerSelector from './PlayerSelector'
+import MoveHistory from './MoveHistory'
 
 interface GameInfoProps {
   state: State
@@ -49,6 +50,8 @@ export default function GameInfo (props: GameInfoProps) {
       <br/>
       <button onClick={props.flipBoard}>Flip Board</button>
       <button onClick={props.openTheme}>Change Theme</button>
+      <br/>
+      <MoveHistory state={props.state}/>
     </div>
   )
 }

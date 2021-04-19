@@ -5,10 +5,13 @@ import * as pieces from './pieces'
 const NORMAL_MOVE_REGEX = /^([KQRBN]?)([a-h]?)([1-8]?)(x?)([a-h])([1-8])(?:=?([QRBN]))?(?:\+|#|)(?:\?\??|!!?|\?!|!\?|)$/
 
 abstract class MoveNotation {
+  checkSymbol: string
+
   protected constructor () {
     if (typeof this.matches !== 'function') {
       throw new Error('Matches function not defined')
     }
+    this.checkSymbol = ''
   }
 
   static parseMove (color: pieces.Color, move: string) {
@@ -55,9 +58,9 @@ class CastleMoveNotation extends MoveNotation {
 
   toString () {
     if (this.isKingSide) {
-      return 'O-O'
+      return 'O-O' + this.checkSymbol
     } else {
-      return 'O-O-O'
+      return 'O-O-O' + this.checkSymbol
     }
   }
 
@@ -73,7 +76,6 @@ class NormalMoveNotation extends MoveNotation {
   fromRank: number | null
   toPos: util.Pos
   promoteChoice: pieces.Piece | null
-  checkSymbol: string
 
   constructor (piece: pieces.Piece, captures: boolean, fromFile: number | null, fromRank: number | null, toPos: util.Pos, promoteChoice: pieces.Piece | null) {
     super()
@@ -83,7 +85,6 @@ class NormalMoveNotation extends MoveNotation {
     this.fromRank = fromRank
     this.toPos = toPos
     this.promoteChoice = promoteChoice
-    this.checkSymbol = ''
   }
 
   toString () {

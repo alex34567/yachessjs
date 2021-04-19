@@ -48,6 +48,10 @@ abstract class Move {
     state.threeFoldDetect = state.threeFoldDetect.set(lastFen, stateCount)
   }
 
+  toString () {
+    return this.toNotation().toString()
+  }
+
   abstract invalid (): string | false
 
   abstract toNotation(): moveNotation.MoveNotation
@@ -57,6 +61,7 @@ class NormalMove extends Move {
   piece: pieces.Piece
   fromPos: util.Pos
   toPos: util.Pos
+  private notationCache?: moveNotation.MoveNotation
 
   constructor (state: state.State, piece: pieces.Piece, fromPos: util.Pos, toPos: util.Pos) {
     super(state)
@@ -78,6 +83,9 @@ class NormalMove extends Move {
   }
 
   toNotation () {
+    if (this.notationCache) {
+      return this.notationCache
+    }
     let promoteChoice = null
     if (this.isPromote()) {
       promoteChoice = this.promoteChoice
@@ -103,6 +111,7 @@ class NormalMove extends Move {
     } else if (doneMove.isCheck()) {
       notation.checkSymbol = '+'
     }
+    this.notationCache = notation
     return notation
   }
 
@@ -213,7 +222,14 @@ class Castle extends Move {
   }
 
   toNotation () {
-    return new moveNotation.CastleMoveNotation(this.isKingSide)
+    const notation = new moveNotation.CastleMoveNotation(this.isKingSide)
+    const doneMove = this.do()
+    if (doneMove.isCheckmate()) {
+      notation.checkSymbol = '#'
+    } else if (doneMove.isCheck()) {
+      notation.checkSymbol = '+'
+    }
+    return notation
   }
 
   isCastle () {
