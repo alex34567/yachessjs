@@ -85,7 +85,7 @@ export class Stockfish extends Player {
 
   giveStateToStockfish () {
     this.stockfishHandle!.postMessage(`position fen ${this.state?.toFen()}`)
-    this.stockfishHandle!.postMessage('go movetime 5000')
+    this.stockfishHandle!.postMessage('go movetime 1000')
   }
 
   parseStockfishLine (event: MessageEvent<string>) {
