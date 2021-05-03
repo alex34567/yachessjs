@@ -32,6 +32,11 @@ export default function ChessBoard (props: ChessBoardProps) {
   useEffect(() => {
     measureBoardSize(boardRef.current)
   })
+  useEffect(() => {
+    if (props.changeHighlight && highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
+      props.changeHighlight(undefined)
+    }
+  })
 
   function measureBoardSize (board: HTMLDivElement | null | undefined) {
     if (board) {
@@ -46,10 +51,6 @@ export default function ChessBoard (props: ChessBoardProps) {
   }
 
   const highlightedPos = props.highlightedPos
-
-  if (props.changeHighlight && highlightedPos && (!props.state.board.get(highlightedPos).isOccupied() || props.setup?.setupPiece)) {
-    props.changeHighlight(undefined)
-  }
   if (!highlightedPos && promotePos) {
     setPromotePos(null)
   }

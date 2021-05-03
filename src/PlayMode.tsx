@@ -23,10 +23,11 @@ export default function PlayMode (props: ModeProps) {
   const [state, setState] = useState(() => getStateFromQuery(history))
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
   const [flipBoard, setFlipBoard] = useState(false)
+  const [selectedMove, setSelectedMove] = useState(state.getHistoryIndex())
 
   useEffect(() => {
     // If someone pushes the reset button at the exact time a move is ready,
-    // then the board will be corrupted with the move that have been be canceled.
+    // then the board will be corrupted with the move that has been canceled.
     // This variable blocks the board from updating in the promise handler,
     // preventing this race condition.
     const defaultState = getStateFromQuery(history)
@@ -42,19 +43,20 @@ export default function PlayMode (props: ModeProps) {
       if (!stateValid) {
         return
       }
-      if (state.isGameOver()) {
-        setState(state)
-        return
+      let ret
+      if (!state.isGameOver()) {
+        const tmp = player1
+        player1 = player2
+        player2 = tmp
+        ret = player1.makeMove(state).then(makeMoveThen)
       }
-      const tmp = player1
-      player1 = player2
-      player2 = tmp
-      const ret = player1.makeMove(state).then(makeMoveThen)
       setState(state)
+      setSelectedMove(state.getHistoryIndex())
       return ret
     }
     player1.makeMove(defaultState).then(makeMoveThen)
     setState(defaultState)
+    setSelectedMove(defaultState.getHistoryIndex())
     return () => {
       stateValid = false
       players.white.close()
@@ -78,12 +80,20 @@ export default function PlayMode (props: ModeProps) {
   if (state.currTurn === BLACK) {
     currPlayer = players.black
   }
+
+  const boardState = state.getHistory(selectedMove)
+  let makeMove
+  if (selectedMove === state.getHistoryIndex()) {
+    makeMove = currPlayer.getBoardClick()
+  }
+
   return (
     <div className="App">
       <div className="PlayChessBoardBox">
-        <ChessBoard flipBoard={flipBoard} changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={currPlayer.getBoardClick()} state={state} theme={props.theme}/>
+        <ChessBoard flipBoard={flipBoard} changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={makeMove} state={boardState} theme={props.theme}/>
       </div>
-      <GameInfo flipBoard={toggleBoardFlip} state={state} restart={restart} switchMode={switchMode} openTheme={props.openTheme}/>
+      <GameInfo flipBoard={toggleBoardFlip} state={state} restart={restart} switchMode={switchMode}
+                openTheme={props.openTheme} selectedMove={selectedMove} setSelectedMove={setSelectedMove}/>
     </div>
   )
 }

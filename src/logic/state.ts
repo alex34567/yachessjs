@@ -209,6 +209,24 @@ class State {
     }
   }
 
+  begin (): State {
+    if (this.moveHistory.size) {
+      return this.moveHistory.get(0)?.state!
+    }
+    return this
+  }
+
+  getHistory (index: number): State {
+    if (index >= this.moveHistory.size) {
+      return this
+    }
+    return this.moveHistory.get(index)?.state!
+  }
+
+  getHistoryIndex (): number {
+    return this.moveHistory.size
+  }
+
   halfMoveCount () {
     return this.historyBegin + this.moveHistory.size
   }
@@ -456,25 +474,6 @@ class State {
     return !this.moves().some(x => !x.invalid()) && this.isCheck()
   }
 
-  back (): State {
-    if (this.moveHistory.size === 0) {
-      return this
-    }
-    return Object.freeze(new HistoryState(this.moveHistory.last(undefined)!.state, this.moveHistory, this.moveHistory.size - 1))
-  }
-
-  forward (): State {
-    return this
-  }
-
-  endAltHistory (): State {
-    return this
-  }
-
-  isHistory (): this is HistoryState {
-    return false
-  }
-
   perft (depth: number) {
     if (depth === 0) {
       return 1
@@ -510,12 +509,11 @@ class State {
       blackName = 'Unknown'
     }
     const date = `${gameStartTime.getFullYear()}.${gameStartTime.getMonth()}.${gameStartTime.getDate()}`
-    const exportState = this.endAltHistory().end()
     let result = '*'
-    if (exportState.isGameOver()) {
-      if (exportState.isDraw()) {
+    if (this.isGameOver()) {
+      if (this.isDraw()) {
         result = '1/2-1/2'
-      } else if (exportState.currTurn === pieces.WHITE) {
+      } else if (this.currTurn === pieces.WHITE) {
         result = '0-1'
       } else {
         result = '1-0'
@@ -523,7 +521,7 @@ class State {
     }
     const pgnTags = [['Event', eventName], ['Site', siteName], ['Date', date], ['Round', round],
       ['White', whiteName], ['Black', blackName], ['Result', result]]
-    const beginState = exportState.begin()
+    const beginState = this.begin()
     if (beginState.toFen() !== getStartState().toFen()) {
       pgnTags.push(['SetUp', '1'])
       pgnTags.push(['FEN', beginState.toFen()])
@@ -539,7 +537,7 @@ class State {
     if (moveCount % 2 === 1) {
       moveLineGen.addToken(`${Math.floor(moveCount / 2)}...`)
     }
-    for (const move of exportState.moveHistory) {
+    for (const move of this.moveHistory) {
       if (moveCount % 2 === 0) {
         moveLineGen.addToken(`${Math.floor(moveCount / 2)}.`)
       }
@@ -548,109 +546,6 @@ class State {
     }
     moveLineGen.addToken(result)
     return outputStr + moveLineGen.done() + '\n'
-  }
-
-  begin () {
-    let lastState: State = this
-    let state = this.back()
-    while (state !== lastState) {
-      lastState = state
-      state = state.back()
-    }
-    return state
-  }
-
-  end () {
-    let lastState: State = this
-    let state = this.forward()
-    while (state !== lastState) {
-      lastState = state
-      state = state.forward()
-    }
-    return state
-  }
-}
-
-class HistoryState extends State {
-  moveIndex: number
-
-  constructor (state: State, history: immutable.List<moves.Move>, moveIndex: number) {
-    super(state)
-    this.moveHistory = history
-    this.moveIndex = moveIndex
-  }
-
-  moveCount () {
-    return Math.floor((this.moveIndex + this.historyBegin) / 2)
-  }
-
-  back () {
-    if (this.moveIndex === 0) {
-      return this
-    }
-    const moveIndex = this.moveIndex - 1
-    const lastState = this.moveHistory.get(moveIndex)!.state
-    if (lastState.isHistory()) {
-      return lastState
-    }
-    return Object.freeze(new HistoryState(lastState, this.moveHistory, moveIndex))
-  }
-
-  forward () {
-    if (this.moveIndex >= this.moveHistory.size - 1) {
-      return this.moveHistory.last(undefined)!.do()
-    }
-    const moveIndex = this.moveIndex + 1
-    const forwardState = this.moveHistory.get(moveIndex)!.state
-    if (forwardState.isHistory()) {
-      return forwardState
-    }
-    return Object.freeze(new HistoryState(forwardState, this.moveHistory, moveIndex))
-  }
-
-  modify (fn: (state: State) => void) {
-    const newState = new AltHistoryState(this, this.moveHistory, this.moveIndex)
-    fn(newState)
-    Object.freeze(newState.white)
-    Object.freeze(newState.black)
-    return Object.freeze(newState)
-  }
-
-  commandPrompt () {
-    if (this.currTurn === pieces.WHITE) {
-      return `History ${this.moveCount()}. WHITE>`
-    } else {
-      return `History ${this.moveCount()}. BLACK>`
-    }
-  }
-
-  isHistory () {
-    return true
-  }
-}
-
-class AltHistoryState extends HistoryState {
-  altBranch: State
-
-  constructor (state: State, history: immutable.List<moves.Move>, moveIndex: number) {
-    super(state, history, moveIndex)
-    if (state instanceof AltHistoryState) {
-      this.altBranch = state.altBranch
-    } else {
-      this.altBranch = state
-    }
-  }
-
-  endAltHistory (): State {
-    return this.altBranch
-  }
-
-  commandPrompt () {
-    if (this.currTurn === pieces.WHITE) {
-      return `Alt History ${this.moveCount()}. WHITE>`
-    } else {
-      return `Alt History ${this.moveCount()}. BLACK>`
-    }
   }
 }
 

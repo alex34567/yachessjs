@@ -181,6 +181,15 @@
   overflow-y: scroll;
 }
 
+.ChessMove {
+  cursor: pointer;
+}
+
+.ChessMove.Selected {
+  background-color: darkgray;
+  cursor: auto;
+}
+
 @media (max-aspect-ratio: 2/1) {
   .App {
     flex-direction: column;

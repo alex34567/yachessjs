@@ -7,6 +7,8 @@ import MoveHistory from './MoveHistory'
 
 interface GameInfoProps {
   state: State
+  selectedMove: number
+  setSelectedMove: (index: number) => void
   restart: (white: Player, black: Player) => void
   switchMode: () => void
   openTheme: () => void
@@ -51,7 +53,7 @@ export default function GameInfo (props: GameInfoProps) {
       <button onClick={props.flipBoard}>Flip Board</button>
       <button onClick={props.openTheme}>Change Theme</button>
       <br/>
-      <MoveHistory state={props.state}/>
+      <MoveHistory state={props.state} selectedMove={props.selectedMove} setSelectedMove={props.setSelectedMove}/>
     </div>
   )
 }

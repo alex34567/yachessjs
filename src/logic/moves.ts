@@ -33,10 +33,6 @@ abstract class Move {
   }
 
   protected doChain (state: State) {
-    if (state.isHistory()) {
-      state.moveHistory = state.moveHistory.setSize(state.moveIndex)
-      state.moveIndex++
-    }
     state.halfMove++
     state.moveHistory = state.moveHistory.push(this)
     const lastFen = this.state.toAbvFen()
