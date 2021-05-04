@@ -177,8 +177,8 @@ class State {
   historyBegin: number
   halfMove: number
   threeFoldDetect: immutable.Map<string, number>
-  resign: boolean
-  agreeDraw: boolean
+  gameOverReason?: string
+  winner?: pieces.Color
   checks: number
 
   constructor (state?: State) {
@@ -191,8 +191,6 @@ class State {
       this.historyBegin = 2
       this.halfMove = 0
       this.threeFoldDetect = immutable.Map()
-      this.resign = false
-      this.agreeDraw = false
       this.checks = 0
     } else {
       this.board = state.board
@@ -203,8 +201,6 @@ class State {
       this.historyBegin = state.historyBegin
       this.halfMove = state.halfMove
       this.threeFoldDetect = state.threeFoldDetect
-      this.resign = state.resign
-      this.agreeDraw = state.agreeDraw
       this.checks = state.checks
     }
   }
@@ -405,6 +401,17 @@ class State {
     }
 
     newState.board = newState.board.withMutations(() => {})
+
+    if (newState.isCheckmate()) {
+      newState.gameOverReason = 'checkmate'
+      newState.winner = newState.currTurn.OTHER_COLOR
+    } else if (!newState.moves().some(x => !x.invalid())) {
+      newState.gameOverReason = 'stalemate'
+    } else if (newState.isThreeFold()) {
+      newState.gameOverReason = 'threefold'
+    } else if (newState.halfMove >= 100) {
+      newState.gameOverReason = 'fiftymove'
+    }
     return newState
   }
 
@@ -443,21 +450,11 @@ class State {
   }
 
   isDraw () {
-    return this.agreeDraw || (!this.isCheckmate() && !this.moves().some(x => !x.invalid())) || this.isThreeFold() || this.halfMove >= 100
+    return this.isGameOver() && this.winner === undefined
   }
 
   isGameOver () {
-    return !this.moves().some(x => !x.invalid()) || this.isDraw() || this.resign
-  }
-
-  drawReason () {
-    if (this.isThreeFold()) {
-      return 'three fold repetition'
-    } else if (this.halfMove >= 100) {
-      return '50 move rule'
-    } else {
-      return 'stalemate'
-    }
+    return this.gameOverReason !== undefined
   }
 
   isThreeFold () {

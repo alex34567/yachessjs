@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import PlayerSelector from './PlayerSelector'
 import MoveHistory from './MoveHistory'
+import { translateString } from './i18n'
 
 interface GameInfoProps {
   state: State
@@ -31,15 +32,13 @@ export default function GameInfo (props: GameInfoProps) {
     setBlackFactory(player)
   }
 
-  let checkmateText
-  if (props.state.isCheckmate()) {
-    checkmateText = 'Checkmate'
-  } else if (props.state.isDraw()) {
-    checkmateText = `Draw due to ${props.state.drawReason()}`
+  let gameoverText
+  if (props.state.gameOverReason) {
+    gameoverText = translateString(props.state.gameOverReason)
   }
   return (
     <div className='GameInfo'>
-      {checkmateText}
+      {gameoverText}
       <br/>
       <label>White Player </label>
       <PlayerSelector onPlayerChange={onWhiteChange} value={whiteFactory}/>
