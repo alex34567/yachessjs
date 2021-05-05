@@ -3,12 +3,14 @@
   position: relative;
 }
 
-.PlayChessBoardBox {
+.GameArea {
   position: relative;
-  width: 90vmin;
-  height: 90vmin;
   padding-left: 5vmin;
-  padding-top: 5vmin;
+}
+
+.PlayChessBoardBox {
+  width: 80vmin;
+  height: 80vmin;
 }
 
 .Square {
@@ -188,6 +190,26 @@
 .ChessMove.Selected {
   background-color: darkgray;
   cursor: auto;
+}
+
+.PlayerInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.PlayerRanking {
+  font-size: small;
+}
+
+.ChessClock {
+  font-size: large;
+  text-align: center;
+  width: 5rem;
+  background-color: gray;
+}
+
+.ChessClock.Active {
+  background-color: lightgrey;
 }
 
 @media (max-aspect-ratio: 2/1) {

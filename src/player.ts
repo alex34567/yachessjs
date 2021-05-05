@@ -3,39 +3,55 @@ import { convertFileLetter, convertRankLetter, Pos } from './logic/util'
 import { Piece } from './logic/pieces'
 
 export abstract class Player {
-    abstract makeMove(state: State): Promise<State>
-    abstract name(): string
+  private active = false
 
-    getBoardClick (): undefined | ((state: State) => void) {
-      return undefined
-    }
+  protected abstract makeMoveHook(state: State): Promise<State>
+  abstract name(): string
+  abstract ranking(): number
 
-    close (): void {}
-    newGame (): void {}
+  makeMove (state: State): Promise<State> {
+    this.active = true
+    return this.makeMoveHook(state).finally(() => { this.active = false })
+  }
+
+  isActive () {
+    return this.active
+  }
+
+  getBoardClick (): undefined | ((state: State) => void) {
+    return undefined
+  }
+
+  close (): void {}
+  newGame (): void {}
 }
 
-export class Human extends Player {
-    promiseRes?: (state: State) => void
+export class LocalHuman extends Player {
+  promiseRes?: (state: State) => void
 
-    makeMove (state: State): Promise<State> {
-      return new Promise<State>(resolve => {
-        this.promiseRes = resolve
-      })
-    }
+  makeMoveHook (state: State): Promise<State> {
+    return new Promise<State>(resolve => {
+      this.promiseRes = resolve
+    })
+  }
 
-    name () {
-      return 'Human'
-    }
+  name () {
+    return 'Human'
+  }
 
-    getBoardClick (): ((state: State) => void) | undefined {
-      return this.promiseRes
-    }
+  ranking (): number {
+    return 1500
+  }
+
+  getBoardClick (): ((state: State) => void) | undefined {
+    return this.promiseRes
+  }
 }
 
 export class MrRandom extends Player {
   timeoutID?: number
 
-  makeMove (state: State): Promise<State> {
+  makeMoveHook (state: State): Promise<State> {
     const moves = state.moves().filter(move => !move.invalid())
     const move = moves[Math.floor(Math.random() * moves.length)]
     return new Promise<State>(resolve => {
@@ -44,7 +60,11 @@ export class MrRandom extends Player {
   }
 
   name () {
-    return 'MrRandom'
+    return 'Mr. Random'
+  }
+
+  ranking () : number {
+    return 0
   }
 
   close () {
@@ -68,7 +88,11 @@ export class Stockfish extends Player {
     return 'Stockfish'
   }
 
-  makeMove (state: State): Promise<State> {
+  ranking () : number {
+    return this.level
+  }
+
+  makeMoveHook (state: State): Promise<State> {
     return new Promise(resolve => {
       this.state = state
       if (!this.stockfishHandle) {
@@ -162,7 +186,7 @@ export class HumanFactory extends PlayerFactory {
   }
 
   build (): Player {
-    return new Human()
+    return new LocalHuman()
   }
 
   id (): string {

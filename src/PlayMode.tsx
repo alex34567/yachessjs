@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { Human, Player } from './player'
+import { LocalHuman, Player } from './player'
 import { State } from './logic/state'
 import { BLACK } from './logic/pieces'
 import ChessBoard from './ChessBoard'
@@ -9,6 +9,7 @@ import { Pos } from './logic/util'
 import { useHistory, useLocation } from 'react-router-dom'
 import { changeMode, getStateFromQuery } from './util'
 import { ModeProps } from './App'
+import PlayerInfo from './PlayerInfo'
 
 interface Players {
   white: Player
@@ -18,12 +19,13 @@ interface Players {
 export default function PlayMode (props: ModeProps) {
   const history = useHistory()
   const location = useLocation()
-  const [players, setPlayers] = useState<Players>({ white: new Human(), black: new Human() })
+  const [players, setPlayers] = useState<Players>({ white: new LocalHuman(), black: new LocalHuman() })
 
   const [state, setState] = useState(() => getStateFromQuery(history))
   const [highlightedPos, setHighlightedPos] = useState<Pos>()
   const [flipBoard, setFlipBoard] = useState(false)
   const [selectedMove, setSelectedMove] = useState(state.getHistoryIndex())
+  const [forceUpdate, setForceUpdate] = useState(false)
 
   useEffect(() => {
     // If someone pushes the reset button at the exact time a move is ready,
@@ -57,6 +59,7 @@ export default function PlayMode (props: ModeProps) {
     player1.makeMove(defaultState).then(makeMoveThen)
     setState(defaultState)
     setSelectedMove(defaultState.getHistoryIndex())
+    setForceUpdate(!forceUpdate)
     return () => {
       stateValid = false
       players.white.close()
@@ -87,10 +90,21 @@ export default function PlayMode (props: ModeProps) {
     makeMove = currPlayer.getBoardClick()
   }
 
+  let topPlayer = players.black
+  let bottomPlayer = players.white
+  if (flipBoard) {
+    topPlayer = players.white
+    bottomPlayer = players.black
+  }
+
   return (
     <div className="App">
-      <div className="PlayChessBoardBox">
-        <ChessBoard flipBoard={flipBoard} changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={makeMove} state={boardState} theme={props.theme}/>
+      <div className="GameArea">
+        <PlayerInfo player={topPlayer}/>
+        <div className="PlayChessBoardBox">
+          <ChessBoard flipBoard={flipBoard} changeHighlight={setHighlightedPos} highlightedPos={highlightedPos} makeMove={makeMove} state={boardState} theme={props.theme}/>
+        </div>
+        <PlayerInfo player={bottomPlayer}/>
       </div>
       <GameInfo flipBoard={toggleBoardFlip} state={state} restart={restart} switchMode={switchMode}
                 openTheme={props.openTheme} selectedMove={selectedMove} setSelectedMove={setSelectedMove}/>

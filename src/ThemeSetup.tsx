@@ -17,8 +17,8 @@ export default function ThemeSetup (props: ThemeSetupProps) {
   const [windowWidth, setWindowWidth] = useState(0)
 
   function resizeWindow () {
-    const height = document.body.offsetHeight
-    const width = document.body.offsetWidth
+    const height = document.documentElement.clientHeight
+    const width = document.documentElement.clientWidth
     if (height !== windowHeight) {
       setWindowHeight(height)
     }
